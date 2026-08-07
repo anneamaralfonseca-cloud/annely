@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glow & Lip | Glosses e Batons</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <h1>✨ Glow & Lip</h1>
+            <p>Sua dose diária de brilho e cor</p>
+        </div>
+        <nav class="nav">
+            <a href="#catalogo">Catálogo</a>
+            <a href="#testador">Testador de Cores</a>
+            <a href="#dicas">Dicas</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Descubra o Acabamento Perfeito</h2>
+        <p>Do efeito espelhado do gloss ao acabamento aveludado do batom matte.</p>
+        <a href="#catalogo" class="btn-main">Ver Coleção</a>
+    </section>
+
+    <main id="catalogo" class="container">
+        <h2 class="titulo-secao">Nossos Destaques</h2>
+
+        <div class="grid-produtos">
+            
+            <article class="card">
+                <span class="tag">Gloss</span>
+                <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&auto=format&fit=crop&q=60" alt="Gloss Labial Transparente">
+                <div class="card-body">
+                    <h3>Gloss Glass Effect</h3>
+                    <p>Efeito espelhado de alta durabilidade com ácido hialurônico para hidratação intensa.</p>
+                    <span class="preco">R$ 39,90</span>
+                    <button class="btn-card">Adicionar ao Carrinho</button>
+                </div>
+            </article>
+
+            <article class="card">
+                <span class="tag matte">Batom Matte</span>
+                <img src="https://images.unsplash.com/photo-1625093742435-6fa192b6fb10?w=400&auto=format&fit=crop&q=60" alt="Batom Matte Vermelho">
+                <div class="card-body">
+                    <h3>Batom Matte Velvet</h3>
+                    <p>Cor pigmentada na primeira aplicação com textura confortável que não resseca.</p>
+                    <span class="preco">R$ 45,90</span>
+                    <button class="btn-card">Adicionar ao Carrinho</button>
+                </div>
+            </article>
+
+            <article class="card">
+                <span class="tag cremoso">Batom Cremoso</span>
+                <img src="https://images.unsplash.com/photo-1591360236480-4ed861025fa1?w=400&auto=format&fit=crop&q=60" alt="Batom Cremoso Rosa">
+                <div class="card-body">
+                    <h3>Batom Satin Touch</h3>
+                    <p>Nutrição com óleos naturais e acabamento acetinado para o dia a dia.</p>
+                    <span class="preco">R$ 34,90</span>
+                    <button class="btn-card">Adicionar ao Carrinho</button>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <section id="testador" class="testador-secao">
+        <div class="container">
+            <h2>Simulador de Tom</h2>
+            <p>Clique nas cores para ver o tom nos lábios:</p>
+            
+            <div class="amostra-labio" id="mostrador-cor">
+                <span id="nome-cor">Selecione uma cor</span>
+            </div>
+
+            <div class="botoes-cores">
+                <button class="cor-btn" style="background-color: #d62828;" onclick="mudarCor('#d62828', 'Vermelho Clássico')"></button>
+                <button class="cor-btn" style="background-color: #f72585;" onclick="mudarCor('#f72585', 'Pink Gloss')"></button>
+                <button class="cor-btn" style="background-color: #b5838d;" onclick="mudarCor('#b5838d', 'Nude Avelã')"></button>
+                <button class="cor-btn" style="background-color: #6b705c;" onclick="mudarCor('#6b705c', 'Marrom Vintage')"></button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Glow & Lip • Criado para o GitHub Pages</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+/* Variáveis para cores do site */
+:root {
+    --rosa-principal: #ff4d6d;
+    --rosa-hover: #c9184a;
+    --fundo-suave: #fff0f3;
+    --texto-escuro: #2b2d42;
+    --cinza-claro: #f8f9fa;
+    --sombra: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--fundo-suave);
+    color: var(--texto-escuro);
+    line-height: 1.6;
+}
+
+/* Cabeçalho */
+.header {
+    background-color: #ffffff;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo h1 {
+    font-size: 1.6rem;
+    color: var(--rosa-principal);
+}
+
+.logo p {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+.nav a {
+    margin-left: 1.5rem;
+    text-decoration: none;
+    color: var(--texto-escuro);
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: var(--rosa-principal);
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 4rem 1rem;
+    background: linear-gradient(135deg, #ffb3c1 0%, #ff4d6d 100%);
+    color: white;
+}
+
+.hero h2 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.btn-main {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.8rem 2rem;
+    background-color: white;
+    color: var(--rosa-principal);
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.btn-main:hover {
+    transform: scale(1.05);
+}
+
+/* Container Geral */
+.container {
+    max-width: 1100px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+.titulo-secao {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--rosa-principal);
+}
+
+/* Grid de Produtos */
+.grid-produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background-color: var(--rosa-principal);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.tag.matte { background-color: #800f2f; }
+.tag.cremoso { background-color: #ff8fa3; }
+
+.card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-body h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-body p {
+    font-size: 0.9rem;
+    color: #555;
+    flex-grow: 1;
+}
+
+.preco {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--rosa-principal);
+    margin: 1rem 0;
+}
+
+.btn-card {
+    background-color: var(--rosa-principal);
+    color: white;
+    border: none;
+    padding: 0.7rem;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-card:hover {
+    background-color: var(--rosa-hover);
+}
+
+/* Testador Interativo */
+.testador-secao {
+    background-color: white;
+    padding: 3rem 0;
+    text-align: center;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.02);
+}
+
+.amostra-labio {
+    width: 200px;
+    height: 80px;
+    margin: 1.5rem auto;
+    border-radius: 50px;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    transition: background-color 0.4s ease;
+}
+
+.botoes-cores {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.cor-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.cor-btn:hover {
+    transform: scale(1.2);
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--texto-escuro);
+    color: white;
+    font-size: 0.85rem;
+}
+// Função para simular a troca de cor no testador
+function mudarCor(corHex, nomeCor) {
+    const mostrador = document.getElementById('mostrador-cor');
+    const texto = document.getElementById('nome-cor');
+    
+    // Altera a cor de fundo da amostra
+    mostrador.style.backgroundColor = corHex;
+    
+    // Atualiza o texto com o nome da cor
+    texto.innerText = nomeCor;
+}
+
+// Mensagem ao clicar no botão dos cards
+document.querySelectorAll('.btn-card').forEach(button => {
+    button.addEventListener('click', () => {
+        alert('Produto adicionado ao carrinho com sucesso! ✨');
+    });
+});
