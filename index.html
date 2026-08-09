@@ -16,6 +16,8 @@
             --branco: #ffffff;
             --cinza-texto: #334155;
             --sombra: 0 10px 25px rgba(10, 25, 47, 0.15);
+            --pix-verde: #32bcad;
+            --whatsapp-verde: #25d366;
         }
 
         * {
@@ -31,6 +33,34 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+        }
+
+        /* ==========================================
+           BARRA DE AVISOS NO TOPO (FRETE & PIX)
+           ========================================== */
+        .top-bar {
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+            font-size: 0.85rem;
+            padding: 8px 15px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .top-bar-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .top-bar-item svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--azul-claro);
         }
 
         /* ==========================================
@@ -63,14 +93,14 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 15px;
         }
 
         nav a {
             color: var(--branco);
             text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.95rem;
             padding: 8px 16px;
             border-radius: 20px;
             transition: all 0.3s ease;
@@ -91,7 +121,7 @@
             max-width: 1200px;
             margin: 0 auto;
             width: 100%;
-            animation: fadeIn 0.5s ease-in-out;
+            animation: fadeIn 0.4s ease-in-out;
         }
 
         .page.active-page {
@@ -99,34 +129,34 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         /* ==========================================
-           PÁGINA INICIAL (HERO & DESTAQUES)
+           PÁGINA INICIAL
            ========================================== */
         .hero {
-            background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(30, 58, 138, 0.7)), 
+            background: linear-gradient(rgba(10, 25, 47, 0.75), rgba(30, 58, 138, 0.75)), 
                         url('https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=1000&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             color: var(--branco);
             text-align: center;
-            padding: 5rem 2rem;
+            padding: 4.5rem 2rem;
             border-radius: 15px;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             box-shadow: var(--sombra);
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 2.8rem;
+            margin-bottom: 0.8rem;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+            font-size: 1.15rem;
+            margin-bottom: 1.8rem;
             color: var(--azul-suave);
         }
 
@@ -136,7 +166,7 @@
             padding: 12px 30px;
             border: none;
             border-radius: 25px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
@@ -146,20 +176,20 @@
 
         .btn-main:hover {
             background-color: var(--branco);
-            transform: scale(1.05);
+            transform: scale(1.04);
         }
 
         .section-title {
             text-align: center;
             color: var(--azul-escuro);
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 2rem;
             position: relative;
         }
 
         .section-title::after {
             content: '';
-            width: 60px;
+            width: 50px;
             height: 4px;
             background-color: var(--azul-claro);
             display: block;
@@ -170,8 +200,8 @@
         /* Grid de Perfumes */
         .grid-perfumes {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.8rem;
         }
 
         .card-perfume {
@@ -185,17 +215,17 @@
         }
 
         .card-perfume:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
         }
 
         .card-perfume img {
             width: 100%;
-            height: 250px;
+            height: 230px;
             object-fit: cover;
         }
 
         .card-info {
-            padding: 1.5rem;
+            padding: 1.2rem;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
@@ -203,21 +233,22 @@
 
         .card-info h3 {
             color: var(--azul-escuro);
-            margin-bottom: 0.5rem;
+            font-size: 1.15rem;
+            margin-bottom: 0.4rem;
         }
 
         .card-info p {
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            margin-bottom: 0.8rem;
             color: #64748b;
         }
 
         .preco {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-weight: bold;
             color: var(--azul-medio);
             margin-top: auto;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .btn-card {
@@ -230,6 +261,10 @@
             width: 100%;
             font-weight: 600;
             transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
         }
 
         .btn-card:hover {
@@ -238,32 +273,86 @@
         }
 
         /* ==========================================
-           PÁGINA CATÁLOGO (ABAS INTERNAS)
+           SUB-ABAS / FILTROS NO CATÁLOGO
            ========================================== */
         .tabs {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 10px;
             margin-bottom: 2rem;
+            flex-wrap: wrap;
         }
 
         .tab-btn {
             background-color: var(--branco);
             color: var(--azul-escuro);
             border: 2px solid var(--azul-medio);
-            padding: 8px 20px;
+            padding: 8px 18px;
             border-radius: 20px;
             cursor: pointer;
             font-weight: 600;
+            transition: 0.3s;
         }
 
-        .tab-btn.active {
+        .tab-btn.active, .tab-btn:hover {
             background-color: var(--azul-medio);
             color: var(--branco);
         }
 
         /* ==========================================
-           PÁGINA SOBRE NÓS E CONTATO
+           INFORMAÇÕES DE PAGAMENTO PIX & WHATSAPP
+           ========================================== */
+        .pix-box {
+            background-color: var(--branco);
+            border-left: 5px solid var(--pix-verde);
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: var(--sombra);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .pix-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .pix-key-badge {
+            background-color: #e6f7f5;
+            color: #0d685d;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.95rem;
+            font-weight: bold;
+            border: 1px dashed var(--pix-verde);
+        }
+
+        .whatsapp-float-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--whatsapp-verde);
+            color: var(--branco);
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: var(--sombra);
+            transition: transform 0.2s;
+        }
+
+        .whatsapp-float-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* ==========================================
+           SOBRE NÓS & CONTATO
            ========================================== */
         .content-box {
             background-color: var(--branco);
@@ -279,7 +368,7 @@
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             color: var(--azul-escuro);
             font-weight: 600;
         }
@@ -297,6 +386,42 @@
         }
 
         /* ==========================================
+           MODAL DO PIX
+           ========================================== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 25, 47, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: var(--branco);
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+            box-shadow: var(--sombra);
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 12px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--cinza-texto);
+        }
+
+        /* ==========================================
            RODAPÉ
            ========================================== */
         footer {
@@ -308,7 +433,7 @@
             border-top: 3px solid var(--azul-claro);
         }
 
-        /* RESPONSIVIDADE PARA CELULARES */
+        /* RESPONSIVIDADE */
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -317,10 +442,29 @@
             .hero h1 {
                 font-size: 2rem;
             }
+            .top-bar {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
+
+    <div class="top-bar">
+        <div class="top-bar-item">
+            <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+            <span><strong>Frete Grátis:</strong> Entregamos para todo o Brasil</span>
+        </div>
+        <div class="top-bar-item">
+            <svg viewBox="0 0 24 24" style="fill: var(--pix-verde);"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <span>Pagamentos instantâneos via <strong>PIX</strong></span>
+        </div>
+        <div class="top-bar-item">
+            <svg viewBox="0 0 24 24" style="fill: var(--whatsapp-verde);"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+            <span>Atendimento: <strong>(11) 99999-8888</strong></span>
+        </div>
+    </div>
 
     <header>
         <div class="logo">AURA <span>PERFUMES</span></div>
@@ -337,39 +481,54 @@
     <section id="home" class="page active-page">
         <div class="hero">
             <h1>Sinta a Essência do Frescor</h1>
-            <p>Descubra fragrâncias marcantes e exclusivas feitas para destacar sua presença.</p>
-            <button class="btn-main" onclick="navigate('catalogo')">Explorar Coleção</button>
+            <p>Fragrâncias exclusivas com pronta entrega e frete grátis para todo o Brasil.</p>
+            <button class="btn-main" onclick="navigate('catalogo')">Ver Todos os Perfumes</button>
         </div>
 
-        <h2 class="section-title">Mais Vendidos</h2>
+        <div class="pix-box">
+            <div class="pix-info">
+                <svg width="32" height="32" viewBox="0 0 24 24" style="fill: var(--pix-verde);"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <div>
+                    <strong>Pague com Chave PIX e ganhe 5% de desconto!</strong>
+                    <p style="font-size: 0.85rem; color: #64748b;">Chave CNPJ / E-mail da loja:</p>
+                </div>
+            </div>
+            <div class="pix-key-badge">pix@auraperfumes.com.br</div>
+            <a href="https://wa.me/5511999998888" target="_blank" class="whatsapp-float-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" style="fill: white;"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+                Pedir no WhatsApp
+            </a>
+        </div>
+
+        <h2 class="section-title">Destaques da Coleção</h2>
         <div class="grid-perfumes">
             <div class="card-perfume">
-                <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=600&auto=format&fit=crop" alt="Perfume Ocean Breeze">
+                <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=600&auto=format&fit=crop" alt="Ocean Breeze">
                 <div class="card-info">
                     <h3>Ocean Breeze</h3>
-                    <p>Notas marinhas com um toque cítrico refinado. Leveza e elegância.</p>
+                    <p>Notas marinhas refrescantes com toque cítrico.</p>
                     <div class="preco">R$ 289,90</div>
-                    <button class="btn-card">Adicionar ao Carrinho</button>
+                    <button class="btn-card" onclick="openPixModal('Ocean Breeze', '289,90')">Comprar com PIX</button>
                 </div>
             </div>
 
             <div class="card-perfume">
-                <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=600&auto=format&fit=crop" alt="Perfume Blue Night">
+                <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=600&auto=format&fit=crop" alt="Blue Night">
                 <div class="card-info">
                     <h3>Blue Night Intense</h3>
-                    <p>Uma fragrância amadeirada marcante com toque de baunilha e âmbar.</p>
+                    <p>Amadeirado profundo com baunilha e âmbar.</p>
                     <div class="preco">R$ 349,90</div>
-                    <button class="btn-card">Adicionar ao Carrinho</button>
+                    <button class="btn-card" onclick="openPixModal('Blue Night Intense', '349,90')">Comprar com PIX</button>
                 </div>
             </div>
 
             <div class="card-perfume">
-                <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=600&auto=format&fit=crop" alt="Perfume Aqua Elixir">
+                <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=600&auto=format&fit=crop" alt="Aqua Elixir">
                 <div class="card-info">
                     <h3>Aqua Elixir</h3>
-                    <p>Frescor absoluto com lavanda e menta para o dia a dia.</p>
+                    <p>Mistura suave de lavanda e menta gelada.</p>
                     <div class="preco">R$ 199,90</div>
-                    <button class="btn-card">Adicionar ao Carrinho</button>
+                    <button class="btn-card" onclick="openPixModal('Aqua Elixir', '199,90')">Comprar com PIX</button>
                 </div>
             </div>
         </div>
@@ -379,138 +538,47 @@
         <h2 class="section-title">Nosso Catálogo Completo</h2>
         
         <div class="tabs">
-            <button class="tab-btn active" onclick="filterPerfumes('todos')">Todos</button>
-            <button class="tab-btn" onclick="filterPerfumes('frescos')">Frescos</button>
+            <button class="tab-btn active" onclick="filterPerfumes('todos')">Todos os Perfumes</button>
+            <button class="tab-btn" onclick="filterPerfumes('frescos')">Frescos / Cítricos</button>
             <button class="tab-btn" onclick="filterPerfumes('amadeirados')">Amadeirados</button>
+            <button class="tab-btn" onclick="filterPerfumes('florais')">Florais / Suaves</button>
         </div>
 
         <div class="grid-perfumes">
-            <div class="card-perfume fresco">
+            <div class="card-perfume frescos">
                 <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=600&auto=format&fit=crop" alt="Ocean Breeze">
                 <div class="card-info">
                     <h3>Ocean Breeze</h3>
-                    <p>Categoria: Cítrico / Fresco</p>
+                    <p>Categoria: Fresco / Aquático</p>
                     <div class="preco">R$ 289,90</div>
-                    <button class="btn-card">Comprar</button>
+                    <button class="btn-card" onclick="openPixModal('Ocean Breeze', '289,90')">Comprar com PIX</button>
                 </div>
             </div>
 
-            <div class="card-perfume amadeirado">
+            <div class="card-perfume amadeirados">
                 <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=600&auto=format&fit=crop" alt="Blue Night">
                 <div class="card-info">
                     <h3>Blue Night Intense</h3>
                     <p>Categoria: Amadeirado Exótico</p>
                     <div class="preco">R$ 349,90</div>
-                    <button class="btn-card">Comprar</button>
+                    <button class="btn-card" onclick="openPixModal('Blue Night Intense', '349,90')">Comprar com PIX</button>
                 </div>
             </div>
 
-            <div class="card-perfume fresco">
+            <div class="card-perfume frescos">
                 <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=600&auto=format&fit=crop" alt="Aqua Elixir">
                 <div class="card-info">
                     <h3>Aqua Elixir</h3>
-                    <p>Categoria: Aquático / Herbal</p>
+                    <p>Categoria: Cítrico / Herbal</p>
                     <div class="preco">R$ 199,90</div>
-                    <button class="btn-card">Comprar</button>
+                    <button class="btn-card" onclick="openPixModal('Aqua Elixir', '199,90')">Comprar com PIX</button>
                 </div>
             </div>
 
-            <div class="card-perfume amadeirado">
+            <div class="card-perfume amadeirados">
                 <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?q=80&w=600&auto=format&fit=crop" alt="Royal Sapphire">
                 <div class="card-info">
                     <h3>Royal Sapphire</h3>
-                    <p>Categoria: Amadeirado Marcante</p>
+                    <p>Categoria: Amadeirado Elegante</p>
                     <div class="preco">R$ 420,00</div>
-                    <button class="btn-card">Comprar</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="sobre" class="page">
-        <h2 class="section-title">Sobre a Aura Perfumes</h2>
-        <div class="content-box">
-            <h3>Nossa História</h3>
-            <p style="margin-bottom: 1rem;">Fundada para trazer o melhor das fragrâncias oceânicas e marcantes, a Aura Perfumes se destaca pelo design minimalista em tons azuis e aromas inesquecíveis.</p>
-            <h3>Nosso Compromisso</h3>
-            <p>Trabalhamos apenas com essências de alta fixação, cruelty-free (sem testes em animais) e embalagens 100% recicláveis para respeitar o oceano que nos inspira.</p>
-        </div>
-    </section>
-
-    <section id="contato" class="page">
-        <h2 class="section-title">Fale Conosco</h2>
-        <div class="content-box" style="max-width: 600px; margin: 0 auto;">
-            <form id="contact-form" onsubmit="handleSubmit(event)">
-                <div class="form-group">
-                    <label>Nome Completo</label>
-                    <input type="text" placeholder="Seu nome" required>
-                </div>
-                <div class="form-group">
-                    <label>E-mail</label>
-                    <input type="email" placeholder="seu@email.com" required>
-                </div>
-                <div class="form-group">
-                    <label>Mensagem</label>
-                    <textarea rows="5" placeholder="Escreva sua mensagem aqui..." required></textarea>
-                </div>
-                <button type="submit" class="btn-main" style="width: 100%;">Enviar Mensagem</button>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Aura Perfumes - Todos os direitos reservados.</p>
-        <p style="font-size: 0.8rem; margin-top: 5px; color: var(--azul-claro);">Desenvolvido para GitHub Pages</p>
-    </footer>
-
-    <script>
-        // Função para alternar entre "Páginas" sem recarregar o site
-        function navigate(pageId) {
-            // Esconde todas as páginas
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => page.classList.remove('active-page'));
-
-            // Remove o estado ativo dos botões do menu
-            const navLinks = document.querySelectorAll('nav a');
-            navLinks.forEach(link => link.classList.remove('active'));
-
-            // Mostra a página selecionada
-            document.getElementById(pageId).classList.add('active-page');
-
-            // Ativa o botão do menu correspondente
-            document.getElementById('nav-' + pageId).classList.add('active');
-
-            // Rola suavemente para o topo
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Função para filtrar os perfumes no catálogo (Sub-abas)
-        function filterPerfumes(categoria) {
-            const tabButtons = document.querySelectorAll('.tab-btn');
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-
-            const perfumes = document.querySelectorAll('#catalogo .card-perfume');
-            perfumes.forEach(card => {
-                if (categoria === 'todos') {
-                    card.style.display = 'flex';
-                } else {
-                    if (card.classList.contains(categoria)) {
-                        card.style.display = 'flex';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                }
-            });
-        }
-
-        // Função de envio do formulário de contato
-        function handleSubmit(e) {
-            e.preventDefault();
-            alert('Obrigado pelo contato! Sua mensagem foi enviada com sucesso.');
-            document.getElementById('contact-form').reset();
-        }
-    </script>
-</body>
-</html>
-
+                    <button class="btn-card" onclick="op
