@@ -3,157 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurora Fragrâncias | Haute Parfumerie</title>
+    <title>Lazúli Perfumes | Fragrâncias Exclusivas</title>
     <style>
         /* ==========================================
-           VARIÁVEIS & PALETA DE CORES LUXO
+           VARIÁVEIS DE CORES E ESTILOS
            ========================================== */
         :root {
-            --azul-noite: #031226;
-            --azul-profundo: #0a2540;
-            --azul-safira: #1e40af;
-            --azul-celeste: #38bdf8;
-            --azul-suave: #f0f7ff;
-            --cinza-suave: #f8fafc;
+            --azul-escuro: #0a192f;
+            --azul-medio: #1e3a8a;
+            --azul-bebe: #bae6fd;
+            --azul-claro: #38bdf8;
             --branco: #ffffff;
-            --texto-escuro: #0f172a;
-            --texto-mutado: #64748b;
-            --pix: #32bcad;
+            --cinza-texto: #334155;
+            --pix-verde: #32bcad;
             --whatsapp: #25d366;
-            --sombra-card: 0 10px 30px rgba(10, 37, 64, 0.08);
-            --sombra-hover: 0 20px 40px rgba(10, 37, 64, 0.15);
+            --sombra: 0 10px 25px rgba(10, 25, 47, 0.12);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: var(--cinza-suave);
-            color: var(--texto-escuro);
-            min-height: 100vh;
+            background-color: #f0f9ff;
+            color: var(--cinza-texto);
             display: flex;
             flex-direction: column;
+            min-height: 100vh;
         }
 
-        /* ==========================================
-           BARRA DE ANÚNCIOS
-           ========================================== */
-        .top-announcement {
-            background: linear-gradient(90deg, var(--azul-noite), var(--azul-profundo));
+        /* BARRA SUPERIOR */
+        .top-bar {
+            background-color: var(--azul-escuro);
             color: var(--branco);
-            text-align: center;
-            padding: 8px 15px;
             font-size: 0.85rem;
-            letter-spacing: 0.5px;
-            font-weight: 500;
+            padding: 8px 15px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
-        /* ==========================================
-           Navegação Principal
-           ========================================== */
+        .top-bar-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .top-bar-item svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--azul-bebe);
+        }
+
+        /* CABEÇALHO */
         header {
-            background-color: var(--branco);
-            border-bottom: 1px solid #e2e8f0;
+            background: linear-gradient(135deg, var(--azul-escuro), var(--azul-medio));
+            color: var(--branco);
+            padding: 1rem 2rem;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-        }
-
-        .header-container {
-            max-width: 1250px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
+            box-shadow: var(--sombra);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .brand-logo {
-            font-size: 1.8rem;
+        .logo {
+            font-size: 2rem;
             font-weight: 800;
-            letter-spacing: 3px;
-            color: var(--azul-profundo);
-            text-decoration: none;
-            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--branco);
         }
 
-        .brand-logo span {
-            color: var(--azul-celeste);
-            font-weight: 300;
+        .logo span {
+            color: var(--azul-bebe);
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 15px;
         }
 
         nav a {
-            color: var(--texto-escuro);
+            color: var(--branco);
             text-decoration: none;
             font-weight: 600;
             font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 5px 0;
-            position: relative;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s;
             cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--azul-celeste);
-            transition: width 0.3s;
-        }
-
-        nav a:hover::after, nav a.active::after {
-            width: 100%;
         }
 
         nav a:hover, nav a.active {
-            color: var(--azul-safira);
+            background-color: var(--azul-bebe);
+            color: var(--azul-escuro);
         }
 
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .search-bar {
-            display: flex;
-            align-items: center;
-            background-color: var(--azul-suave);
-            padding: 6px 12px;
-            border-radius: 20px;
-            border: 1px solid #dbeafe;
-        }
-
-        .search-bar input {
-            border: none;
-            background: transparent;
-            outline: none;
-            padding: 4px;
-            font-size: 0.85rem;
-            width: 140px;
-        }
-
-        /* ==========================================
-           CONTROLES DE PÁGINAS (SPA)
-           ========================================== */
+        /* SISTEMA DE PÁGINAS */
         .page {
             display: none;
+            padding: 2.5rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
             animation: fadeIn 0.4s ease-in-out;
         }
 
@@ -162,541 +122,465 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(6px); }
+            from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .container {
-            max-width: 1250px;
-            margin: 0 auto;
-            padding: 2.5rem 1.5rem;
-        }
-
-        /* ==========================================
-           BANNER PRINCIPAL (HERO)
-           ========================================== */
-        .hero-banner {
-            background: linear-gradient(120deg, rgba(3, 18, 38, 0.85), rgba(10, 37, 64, 0.7)), 
-                        url('https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=1200&auto=format&fit=crop');
+        /* HERO BANNER */
+        .hero {
+            background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(30, 58, 138, 0.7)), 
+                        url('https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=1000&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
-            border-radius: 20px;
-            padding: 5rem 3rem;
             color: var(--branco);
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-            box-shadow: var(--sombra-card);
-            margin-bottom: 2.5rem;
-        }
-
-        .hero-tag {
-            background-color: rgba(56, 189, 248, 0.2);
-            color: var(--azul-celeste);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            border: 1px solid rgba(56, 189, 248, 0.4);
-        }
-
-        .hero-banner h1 {
-            font-size: 3.2rem;
-            font-weight: 300;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            max-width: 600px;
-        }
-
-        .hero-banner h1 strong {
-            font-weight: 800;
-            color: var(--branco);
-        }
-
-        .hero-banner p {
-            font-size: 1.1rem;
-            color: #cbd5e1;
+            text-align: center;
+            padding: 4rem 2rem;
+            border-radius: 16px;
             margin-bottom: 2rem;
-            max-width: 500px;
+            box-shadow: var(--sombra);
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, var(--azul-celeste), var(--azul-safira));
-            color: var(--branco);
-            padding: 14px 32px;
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 1.8rem;
+            color: var(--azul-bebe);
+        }
+
+        .btn-main {
+            background-color: var(--azul-bebe);
+            color: var(--azul-escuro);
+            padding: 12px 28px;
             border: none;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
-            text-decoration: none;
+            transition: 0.3s;
             display: inline-block;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(56, 189, 248, 0.6);
-        }
-
-        /* ==========================================
-           BARRA DE DESTAQUES E SERVIÇOS
-           ========================================== */
-        .features-bar {
+        .btn-main:hover {
             background-color: var(--branco);
-            border-radius: 16px;
-            padding: 1.8rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            box-shadow: var(--sombra-card);
-            margin-bottom: 3rem;
-            border: 1px solid #eff6ff;
+            transform: scale(1.05);
         }
 
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .feature-icon {
-            width: 50px;
-            height: 50px;
-            background-color: var(--azul-suave);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .feature-icon svg {
-            width: 26px;
-            height: 26px;
-            fill: var(--azul-safira);
-        }
-
-        .feature-text h4 {
-            font-size: 0.95rem;
-            color: var(--azul-profundo);
-            margin-bottom: 2px;
-        }
-
-        .feature-text p {
-            font-size: 0.8rem;
-            color: var(--texto-mutado);
-        }
-
-        /* ==========================================
-           CATÁLOGO DE PERFUMES
-           ========================================== */
-        .section-header {
+        .section-title {
             text-align: center;
-            margin-bottom: 2.5rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.2rem;
-            color: var(--azul-profundo);
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .section-header p {
-            color: var(--texto-mutado);
-            margin-top: 0.5rem;
-        }
-
-        .filter-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 2.5rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            background-color: var(--branco);
-            border: 1px solid #cbd5e1;
-            padding: 8px 22px;
-            border-radius: 25px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--texto-mutado);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .filter-btn.active, .filter-btn:hover {
-            background-color: var(--azul-profundo);
-            color: var(--branco);
-            border-color: var(--azul-profundo);
-        }
-
-        .perfume-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 2rem;
-        }
-
-        .perfume-card {
-            background-color: var(--branco);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--sombra-card);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid #f1f5f9;
+            color: var(--azul-escuro);
+            font-size: 1.8rem;
+            margin-bottom: 1.8rem;
             position: relative;
         }
 
-        .perfume-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--sombra-hover);
+        .section-title::after {
+            content: '';
+            width: 50px;
+            height: 4px;
+            background-color: var(--azul-claro);
+            display: block;
+            margin: 8px auto 0;
+            border-radius: 2px;
         }
 
-        .card-badge {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background-color: var(--azul-profundo);
-            color: var(--branco);
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            z-index: 2;
+        /* CARD PERFUME */
+        .grid-perfumes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
         }
 
-        .perfume-card img {
+        .card-perfume {
+            background: var(--branco);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--azul-bebe);
+        }
+
+        .card-perfume:hover {
+            transform: translateY(-6px);
+        }
+
+        .card-perfume img {
             width: 100%;
-            height: 260px;
+            height: 230px;
             object-fit: cover;
-            background-color: #f8fafc;
         }
 
-        .card-body {
-            padding: 1.5rem;
+        .card-info {
+            padding: 1.2rem;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
-        .card-category {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--azul-celeste);
-            font-weight: 700;
-            margin-bottom: 0.3rem;
+        .card-info h3 {
+            color: var(--azul-escuro);
+            margin-bottom: 0.4rem;
         }
 
-        .card-title {
-            font-size: 1.15rem;
-            color: var(--azul-profundo);
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .card-desc {
+        .card-info p {
             font-size: 0.85rem;
-            color: var(--texto-mutado);
-            line-height: 1.4;
-            margin-bottom: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: #64748b;
         }
 
-        .card-footer {
+        .preco {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--azul-medio);
             margin-top: auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-            padding-top: 1rem;
-            border-top: 1px solid #f1f5f9;
+            margin-bottom: 0.8rem;
         }
 
-        .card-price {
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: var(--azul-profundo);
-        }
-
-        .btn-buy {
-            background-color: var(--azul-suave);
-            color: var(--azul-safira);
+        .btn-card {
+            background-color: var(--azul-medio);
+            color: var(--branco);
             border: none;
-            padding: 10px 16px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 0.85rem;
+            padding: 10px;
+            border-radius: 6px;
             cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            width: 100%;
+            font-weight: 600;
+            transition: 0.2s;
         }
 
-        .btn-buy:hover {
-            background-color: var(--azul-safira);
+        .btn-card:hover {
+            background-color: var(--azul-claro);
+            color: var(--azul-escuro);
+        }
+
+        /* ABAS DO CATÁLOGO */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 1.8rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background-color: var(--branco);
+            color: var(--azul-escuro);
+            border: 2px solid var(--azul-medio);
+            padding: 8px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .tab-btn.active {
+            background-color: var(--azul-medio);
             color: var(--branco);
         }
 
-        /* ==========================================
-           DEPOIMENTOS DE CLIENTES
-           ========================================== */
-        .testimonials-section {
-            margin-top: 4rem;
+        /* BLOS PIX E CONTATO */
+        .content-box {
             background-color: var(--branco);
-            padding: 3.5rem 2rem;
-            border-radius: 20px;
-            box-shadow: var(--sombra-card);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .testimonial-card {
-            background-color: var(--azul-suave);
-            padding: 1.5rem;
+            padding: 2rem;
             border-radius: 12px;
-            border-left: 4px solid var(--azul-celeste);
+            box-shadow: var(--sombra);
+            line-height: 1.6;
         }
 
-        .stars {
-            color: #f59e0b;
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
+        .pix-key-badge {
+            background-color: #e6f7f5;
+            color: #0d685d;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.95rem;
+            font-weight: bold;
+            border: 1px dashed var(--pix-verde);
+            display: inline-block;
+            margin-top: 5px;
         }
 
-        .testimonial-card p {
-            font-size: 0.9rem;
-            color: var(--texto-escuro);
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-
-        .author {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--azul-profundo);
-        }
-
-        /* ==========================================
-           SOBRE NÓS & CONTATO
-           ========================================== */
-        .info-box {
-            background-color: var(--branco);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: var(--sombra-card);
-            max-width: 800px;
-            margin: 0 auto;
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--whatsapp);
+            color: var(--branco);
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
         }
 
         .form-group {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.3rem;
+            color: var(--azul-escuro);
             font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--azul-profundo);
         }
 
         .form-group input, .form-group textarea {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            outline: none;
-            font-size: 0.95rem;
+            border-radius: 6px;
         }
 
-        .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--azul-celeste);
-        }
-
-        /* ==========================================
-           MODAL PIX
-           ========================================== */
-        .modal-overlay {
+        /* MODAL */
+        .modal {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(3, 18, 38, 0.75);
-            backdrop-filter: blur(4px);
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(10, 25, 47, 0.7);
             z-index: 2000;
             justify-content: center;
             align-items: center;
         }
 
-        .modal-box {
+        .modal-content {
             background-color: var(--branco);
-            border-radius: 16px;
-            padding: 2.5rem;
-            max-width: 420px;
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 400px;
             width: 90%;
             text-align: center;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
             position: relative;
         }
 
-        .modal-close {
+        .close-modal {
             position: absolute;
-            top: 15px;
-            right: 20px;
+            top: 10px; right: 15px;
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--texto-mutado);
         }
 
-        .pix-badge {
-            background-color: #e6f7f5;
-            color: var(--pix);
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-family: monospace;
-            font-weight: 700;
-            border: 1px dashed var(--pix);
-            margin: 1rem 0;
-            display: inline-block;
-            word-break: break-all;
-        }
-
-        /* ==========================================
-           RODAPÉ
-           ========================================== */
+        /* RODAPÉ */
         footer {
-            background-color: var(--azul-noite);
+            background-color: var(--azul-escuro);
             color: var(--branco);
-            margin-top: auto;
-            padding: 4rem 2rem 2rem 2rem;
-        }
-
-        .footer-container {
-            max-width: 1250px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-col h4 {
-            color: var(--branco);
-            font-size: 1.1rem;
-            margin-bottom: 1.2rem;
-            position: relative;
-        }
-
-        .footer-col h4::after {
-            content: '';
-            width: 30px;
-            height: 2px;
-            background-color: var(--azul-celeste);
-            display: block;
-            margin-top: 6px;
-        }
-
-        .footer-col p, .footer-col a {
-            color: #94a3b8;
-            font-size: 0.9rem;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-col a:hover {
-            color: var(--azul-celeste);
-        }
-
-        .newsletter-input {
-            display: flex;
-            gap: 8px;
-            margin-top: 1rem;
-        }
-
-        .newsletter-input input {
-            padding: 10px;
-            border-radius: 6px;
-            border: none;
-            outline: none;
-            width: 100%;
-        }
-
-        .copyright {
             text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 1.5rem;
-            color: #64748b;
-            font-size: 0.85rem;
+            padding: 1.5rem;
+            margin-top: auto;
+            border-top: 3px solid var(--azul-bebe);
         }
 
-        /* RESPONSIVIDADE */
         @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            .hero-banner h1 {
-                font-size: 2.2rem;
-            }
-            nav ul {
-                gap: 15px;
-            }
+            header { flex-direction: column; gap: 1rem; }
+            .top-bar { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <div class="top-announcement">
-        ✨ FRETE GRÁTIS EM COMPRAS A PARTIR DE R$ 199 | DESCONTO ESPECIAL DE 5% VIA PIX
+    <div class="top-bar">
+        <div class="top-bar-item">
+            <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+            <span><strong>Frete Grátis:</strong> Entregamos para todo o Brasil</span>
+        </div>
+        <div class="top-bar-item">
+            <svg viewBox="0 0 24 24" style="fill: var(--pix-verde);"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <span>Desconto no <strong>PIX</strong></span>
+        </div>
+        <div class="top-bar-item">
+            <span>WhatsApp: <strong>(11) 99999-8888</strong></span>
+        </div>
     </div>
 
     <header>
-        <div class="header-container">
-            <a onclick="navigate('home')" class="brand-logo">AURORA <span>FRAGRÂNCIAS</span></a>
-            
-            <nav>
-                <ul>
-                    <li><a onclick="navigate('home')" id="nav-home" class="active">Início</a></li>
-                    <li><a onclick="navigate('catalogo')" id="nav-catalogo">Coleções</a></li>
-                    <li><a onclick="navigate('sobre')" id="nav-sobre">Sobre Nós</a></li>
-                    <li><a onclick="navigate('contato')" id="nav-contato">Contato</a></li>
-                </ul>
-            </nav>
+        <div class="logo">LAZÚLI <span>PERFUMES</span></div>
+        <nav>
+            <ul>
+                <li><a onclick="navigate('home')" id="nav-home" class="active">Início</a></li>
+                <li><a onclick="navigate('catalogo')" id="nav-catalogo">Catálogo</a></li>
+                <li><a onclick="navigate('sobre')" id="nav-sobre">Sobre Nós</a></li>
+                <li><a onclick="navigate('contato')" id="nav-contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
 
-            <div class="header-actions">
-                <div class="search-bar">
-                    <input type="text" placeholder="Buscar perfume...">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#64748b"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+    <section id="home" class="page active-page">
+        <div class="hero">
+            <h1>Sinta o Luxo da Lazúli</h1>
+            <p>Fragrâncias marcantes em tons azuis com entrega rápida e frete grátis.</p>
+            <button class="btn-main" onclick="navigate('catalogo')">Ver Catálogo</button>
+        </div>
+
+        <h2 class="section-title">Mais Vendidos</h2>
+        <div class="grid-perfumes">
+            <div class="card-perfume">
+                <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=600&auto=format&fit=crop" alt="Lazúli Ocean">
+                <div class="card-info">
+                    <h3>Lazúli Ocean</h3>
+                    <p>Notas marinhas cítricas e refrescantes.</p>
+                    <div class="preco">R$ 289,90</div>
+                    <button class="btn-card" onclick="openPixModal('Lazúli Ocean', '289,90')">Comprar com PIX</button>
+                </div>
+            </div>
+
+            <div class="card-perfume">
+                <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=600&auto=format&fit=crop" alt="Lazúli Night">
+                <div class="card-info">
+                    <h3>Lazúli Night Intense</h3>
+                    <p>Amadeirado com baunilha e notas de âmbar.</p>
+                    <div class="preco">R$ 349,90</div>
+                    <button class="btn-card" onclick="openPixModal('Lazúli Night Intense', '349,90')">Comprar com PIX</button>
+                </div>
+            </div>
+
+            <div class="card-perfume">
+                <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=600&auto=format&fit=crop" alt="Aqua Lazúli">
+                <div class="card-info">
+                    <h3>Aqua Lazúli</h3>
+                    <p>Menta gelada com lavanda suave.</p>
+                    <div class="preco">R$ 199,90</div>
+                    <button class="btn-card" onclick="openPixModal('Aqua Lazúli', '199,90')">Comprar com PIX</button>
                 </div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <main id="home" class="page active-page">
-        <div class="container">
-            <div class="hero-banner">
-                <span class="hero-tag">Lançamento Exclusivo</span>
-                <h1>Coleção <strong>Aethel Sea</strong></h1>
+    <section id="catalogo" class="page">
+        <h2 class="section-title">Catálogo Completo</h2>
+        
+        <div class="tabs">
+            <button class="tab-btn active" onclick="filterPerfumes('todos')">Todos</button>
+            <button class="tab-btn" onclick="filterPerfumes('frescos')">Frescos</button>
+            <button class="tab-btn" onclick="filterPerfumes('amadeirados')">Amadeirados</button>
+        </div>
+
+        <div class="grid-perfumes">
+            <div class="card-perfume frescos">
+                <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=600&auto=format&fit=crop" alt="Lazúli Ocean">
+                <div class="card-info">
+                    <h3>Lazúli Ocean</h3>
+                    <p>Categoria: Fresco / Aquático</p>
+                    <div class="preco">R$ 289,90</div>
+                    <button class="btn-card" onclick="openPixModal('Lazúli Ocean', '289,90')">Comprar com PIX</button>
+                </div>
+            </div>
+
+            <div class="card-perfume amadeirados">
+                <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=600&auto=format&fit=crop" alt="Lazúli Night">
+                <div class="card-info">
+                    <h3>Lazúli Night</h3>
+                    <p>Categoria: Amadeirado</p>
+                    <div class="preco">R$ 349,90</div>
+                    <button class="btn-card" onclick="openPixModal('Lazúli Night', '349,90')">Comprar com PIX</button>
+                </div>
+            </div>
+
+            <div class="card-perfume frescos">
+                <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=600&auto=format&fit=crop" alt="Aqua Lazúli">
+                <div class="card-info">
+                    <h3>Aqua Lazúli</h3>
+                    <p>Categoria: Cítrico</p>
+                    <div class="preco">R$ 199,90</div>
+                    <button class="btn-card" onclick="openPixModal('Aqua Lazúli', '199,90')">Comprar com PIX</button>
+                </div>
+            </div>
+
+            <div class="card-perfume amadeirados">
+                <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?q=80&w=600&auto=format&fit=crop" alt="Royal Lazúli">
+                <div class="card-info">
+                    <h3>Royal Lazúli</h3>
+                    <p>Categoria: Amadeirado Marcante</p>
+                    <div class="preco">R$ 420,00</div>
+                    <button class="btn-card" onclick="openPixModal('Royal Lazúli', '420,00')">Comprar com PIX</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="page">
+        <h2 class="section-title">Sobre a Lazúli</h2>
+        <div class="content-box">
+            <h3>Nossa Marca</h3>
+            <p>A Lazúli é especialista em perfumaria de alta fixação com inspiração nos tons azuis do oceano.</p>
+            <br>
+            <h3>Pagamento & Envio</h3>
+            <p>🚚 <strong>Frete Grátis:</strong> Entregamos para todo o Brasil.<br>
+               💳 <strong>Chave PIX:</strong> Desconto especial em compras no Pix.</p>
+            <div class="pix-key-badge">pix@lazuli.com.br</div>
+        </div>
+    </section>
+
+    <section id="contato" class="page">
+        <h2 class="section-title">Atendimento</h2>
+        <div class="content-box" style="max-width: 500px; margin: 0 auto; text-align: center;">
+            <p>Dúvidas? Fale conosco pelo WhatsApp:</p>
+            <a href="https://wa.me/5511999998888" target="_blank" class="whatsapp-btn">
+                Conversar no WhatsApp
+            </a>
+            <br><br>
+            <form id="contact-form" onsubmit="handleSubmit(event)" style="text-align: left;">
+                <div class="form-group">
+                    <label>Seu Nome</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>Seu E-mail</label>
+                    <input type="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Mensagem</label>
+                    <textarea rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn-main" style="width: 100%;">Enviar</button>
+            </form>
+        </div>
+    </section>
+
+    <div id="pixModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closePixModal()">&times;</span>
+            <h3 id="modalName">Perfume</h3>
+            <p style="margin: 10px 0;">Valor: <strong id="modalPrice">R$ 0,00</strong></p>
+            <p style="font-size: 0.9rem;">Chave PIX (E-mail):</p>
+            <div class="pix-key-badge" id="pixKeyText">pix@lazuli.com.br</div>
+            <br><br>
+            <button class="btn-card" onclick="copyPix()" style="background-color: var(--pix-verde);">Copiar Chave PIX</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Lazúli Perfumes - Todos os direitos reservados.</p>
+        <p style="font-size: 0.8rem; margin-top: 5px; color: var(--azul-bebe);">🚚 Frete Grátis para todo o Brasil | PIX & WhatsApp</p>
+    </footer>
+
+    <script>
+        function navigate(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
+            document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+
+            document.getElementById(pageId).classList.add('active-page');
+            document.getElementById('nav-' + pageId).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function filterPerfumes(categoria) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+
+            document.querySelectorAll('#catalogo .card-perfume').forEach(card => {
+                if (categoria === 'todos' || card.classList.contains(categoria)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function openPixModal(nome, preco) {
+            document.getElementById('modalName').innerText = nome;
+            document.getElementById('modalPrice').innerText = 'R$ ' + preco;
+            document.getElementById('pixModal').style.display = 'flex';
+      
