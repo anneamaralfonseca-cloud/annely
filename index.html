@@ -3,654 +3,483 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LAZÚLI | Haute Parfumerie por Anne Ly</title>
+    <title>Lazúli — Haute Parfumerie</title>
     <style>
+        /* PALETA DE AZUIS E BRANCO */
         :root {
-            --azul-escuro: #0a192f;
-            --azul-profundo: #0f2b48;
-            --azul-turquesa: #00ced1;
-            --azul-ciano: #00e5ff;
-            --azul-pastel: #e0f7fa;
-            --azul-suave: #b2ebf2;
-            --branco: #ffffff;
-            --texto-escuro: #1c2833;
-            --texto-suave: #546e7a;
-            --sombra-card: 0 10px 30px rgba(0, 206, 209, 0.15);
-            --sombra-hover: 0 15px 35px rgba(0, 229, 255, 0.3);
-            --borda-raio: 16px;
+            --azul-noite: #050C1A;
+            --azul-profundo: #0A192F;
+            --azul-marinho: #112240;
+            --azul-royal: #1E3A8A;
+            --azul-cobalto: #2563EB;
+            --azul-celeste: #38BDF8;
+            --azul-claro: #E0F2FE;
+            --branco: #FFFFFF;
+            --cinza-suave: #F8FAFC;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            font-family: 'Cinzel', 'Helvetica Neue', Arial, sans-serif;
         }
 
         body {
-            background-color: #f4fbfd;
-            color: var(--texto-escuro);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
-        }
-
-        .announcement-bar {
-            background: linear-gradient(90deg, var(--azul-escuro), var(--azul-profundo));
-            color: var(--azul-pastel);
-            text-align: center;
-            padding: 10px 15px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            border-bottom: 2px solid var(--azul-turquesa);
-        }
-
-        .announcement-bar span {
-            color: var(--azul-ciano);
-            font-weight: 800;
-        }
-
-        header {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--azul-suave);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1.2rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .brand-logo {
-            font-size: 2rem;
-            font-weight: 900;
-            letter-spacing: 4px;
-            color: var(--azul-escuro);
-            text-decoration: none;
-            text-transform: uppercase;
-            cursor: pointer;
-        }
-
-        .brand-logo span {
-            color: var(--azul-turquesa);
-            font-weight: 300;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-        }
-
-        nav a {
-            color: var(--azul-profundo);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            padding: 8px 12px;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        nav a:hover, nav a.active {
-            background-color: var(--azul-pastel);
-            color: var(--azul-escuro);
-            border-bottom: 2px solid var(--azul-turquesa);
-        }
-
-        .page-section {
-            display: none;
-            animation: fadeIn 0.4s ease-in-out;
-        }
-
-        .page-section.active-page {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem;
-        }
-
-        .hero-banner {
-            background: linear-gradient(135deg, var(--azul-escuro), var(--azul-profundo));
-            border-radius: var(--borda-raio);
-            padding: 4rem 2rem;
+            background-color: var(--azul-noite);
             color: var(--branco);
-            box-shadow: var(--sombra-card);
-            margin-bottom: 3rem;
-            border: 2px solid var(--azul-turquesa);
-            text-align: center;
-        }
-
-        .hero-tag {
-            background: linear-gradient(90deg, var(--azul-turquesa), var(--azul-ciano));
-            color: var(--azul-escuro);
-            padding: 6px 18px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            display: inline-block;
-            margin-bottom: 1.2rem;
-        }
-
-        .hero-banner h1 {
-            font-size: 2.8rem;
-            font-weight: 300;
-            line-height: 1.15;
-            margin-bottom: 1rem;
-        }
-
-        .hero-banner h1 strong {
-            font-weight: 800;
-            color: var(--azul-ciano);
-        }
-
-        .hero-banner p {
-            font-size: 1.1rem;
-            color: var(--azul-pastel);
-            margin: 0 auto 2rem auto;
-            max-width: 600px;
             line-height: 1.6;
         }
 
-        .btn-cta {
-            background: linear-gradient(90deg, var(--azul-turquesa), var(--azul-ciano));
-            color: var(--azul-escuro);
-            padding: 14px 32px;
-            border: none;
-            border-radius: 30px;
-            font-weight: 800;
-            font-size: 0.95rem;
-            letter-spacing: 1.5px;
+        /* CABEÇALHO VIP */
+        header {
+            background: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .logo-marca {
+            font-size: 2.2rem;
+            font-weight: 300;
+            letter-spacing: 6px;
+            color: var(--branco);
             text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(0, 229, 255, 0.4);
+        }
+
+        .logo-marca span {
+            color: var(--azul-celeste);
+            font-weight: 700;
+        }
+
+        nav a {
+            color: var(--azul-claro);
             text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 229, 255, 0.6);
-            background: var(--branco);
-            color: var(--azul-escuro);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3.5rem;
-        }
-
-        .feature-card {
-            background-color: var(--branco);
-            padding: 1.8rem;
-            border-radius: var(--borda-raio);
-            border: 1px solid var(--azul-suave);
-            box-shadow: var(--sombra-card);
-            text-align: center;
-        }
-
-        .feature-icon {
-            font-size: 2.2rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .feature-card h3 {
-            color: var(--azul-escuro);
-            font-size: 1.1rem;
-            margin-bottom: 0.4rem;
-        }
-
-        .feature-card p {
-            color: var(--texto-suave);
+            margin-left: 2rem;
             font-size: 0.85rem;
-            line-height: 1.4;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.2rem;
-            color: var(--azul-escuro);
+            letter-spacing: 2px;
             text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--azul-celeste);
+        }
+
+        /* BANNER PRINCIPAL */
+        .hero {
+            background: linear-gradient(180deg, rgba(5,12,26,0.6) 0%, rgba(10,25,47,0.9) 100%),
+                        radial-gradient(circle, var(--azul-royal) 0%, var(--azul-noite) 100%);
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.15);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 5px;
+            margin-bottom: 1rem;
+            color: var(--branco);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--azul-celeste);
+            max-width: 650px;
+            margin: 0 auto;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        /* SEÇÃO DE PROMOÇÃO / DESCONTO */
+        .banner-desconto {
+            background: linear-gradient(90deg, var(--azul-marinho), var(--azul-royal), var(--azul-marinho));
+            margin: 3rem auto;
+            max-width: 1100px;
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            border: 1px solid var(--azul-celeste);
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
+        }
+
+        .banner-desconto img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .banner-desconto-texto h3 {
+            color: var(--branco);
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+        }
+
+        .banner-desconto-texto p {
+            color: var(--azul-celeste);
+            font-size: 0.95rem;
+        }
+
+        /* VITRINE DE PRODUTOS */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto 5rem;
+            padding: 0 2rem;
+        }
+
+        .titulo-secao {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--branco);
+            margin-bottom: 3.5rem;
+            letter-spacing: 4px;
+            position: relative;
+        }
+
+        .titulo-secao::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--azul-celeste), transparent);
+            margin: 12px auto 0;
+        }
+
+        .vitrine {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        /* CARDS */
+        .card-produto {
+            background-color: var(--azul-marinho);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(56, 189, 248, 0.15);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.4s ease;
+            text-align: center;
+            padding-bottom: 2rem;
+            position: relative;
+        }
+
+        .card-produto:hover {
+            transform: translateY(-8px);
+            border-color: var(--azul-celeste);
+            box-shadow: 0 15px 40px rgba(56, 189, 248, 0.25);
+        }
+
+        /* Card Diamante - Destaque Especial */
+        .card-produto.destaque-diamante {
+            border: 2px solid #E0F2FE;
+            background: linear-gradient(180deg, var(--azul-marinho) 0%, #152A4A 100%);
+            box-shadow: 0 0 35px rgba(224, 242, 254, 0.3);
+        }
+
+        .tag-exclusivo {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(45deg, #1E3A8A, var(--azul-celeste));
+            color: var(--branco);
+            padding: 5px 15px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .card-produto img.perfume-img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.1);
+        }
+
+        .card-produto h3 {
+            font-size: 1.4rem;
+            margin: 1.5rem 0 0.5rem;
+            color: var(--branco);
+            letter-spacing: 1px;
+        }
+
+        .card-produto .notas {
+            font-size: 0.85rem;
+            color: var(--azul-celeste);
+            margin-bottom: 1.2rem;
+            padding: 0 1.5rem;
+            font-style: italic;
+        }
+
+        .card-produto .preco-antigo {
+            font-size: 0.9rem;
+            color: #94A3B8;
+            text-decoration: line-through;
+            margin-bottom: 0.2rem;
+        }
+
+        .card-produto .preco {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--branco);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-comprar {
+            background: linear-gradient(135deg, var(--azul-royal), var(--azul-cobalto));
+            color: var(--branco);
+            border: 1px solid var(--azul-celeste);
+            padding: 0.9rem 2.2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+
+        .btn-comprar:hover {
+            background: var(--azul-celeste);
+            color: var(--azul-noite);
+            box-shadow: 0 0 20px var(--azul-celeste);
+        }
+
+        /* SOBRE A MARCA */
+        .sobre {
+            background: linear-gradient(180deg, var(--azul-profundo), var(--azul-noite));
+            padding: 6rem 2rem;
+            border-top: 1px solid rgba(56, 189, 248, 0.1);
+        }
+
+        .sobre-conteudo {
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .sobre p {
+            margin-bottom: 1.8rem;
+            color: var(--azul-claro);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* INFORMAÇÕES DE CONTATO E PAGAMENTO */
+        .info-loja {
+            background-color: var(--azul-profundo);
+            padding: 5rem 2rem;
+            border-top: 1px solid rgba(56, 189, 248, 0.15);
+        }
+
+        .info-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            text-align: center;
+        }
+
+        .info-box {
+            padding: 2.5rem 1.5rem;
+            background: rgba(17, 34, 64, 0.6);
+            border-radius: 12px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .info-box img.icone-info {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            margin-bottom: 1.2rem;
+        }
+
+        .info-box h4 {
+            color: var(--branco);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
             letter-spacing: 2px;
         }
 
-        .section-header p {
-            color: var(--azul-profundo);
-            margin-top: 0.5rem;
-            font-weight: 500;
-        }
-
-        .perfume-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
-        }
-
-        .perfume-card {
-            background-color: var(--branco);
-            border-radius: var(--borda-raio);
-            overflow: hidden;
-            box-shadow: var(--sombra-card);
-            border: 1px solid var(--azul-suave);
-            transition: all 0.3s ease;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .perfume-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--sombra-hover);
-            border-color: var(--azul-turquesa);
-        }
-
-        .discount-badge {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: linear-gradient(135deg, var(--azul-escuro), var(--azul-profundo));
-            color: var(--azul-ciano);
-            font-size: 0.8rem;
-            font-weight: 800;
-            padding: 6px 12px;
-            border-radius: 12px;
-            border: 1px solid var(--azul-turquesa);
-            z-index: 2;
-        }
-
-        .perfume-img-container {
-            width: 100%;
-            height: 240px;
-            background: linear-gradient(180deg, var(--azul-pastel), var(--branco));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px;
-            overflow: hidden;
-        }
-
-        .perfume-img-container img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            filter: drop-shadow(0px 8px 12px rgba(0, 206, 209, 0.25));
-        }
-
-        .card-content {
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .perfume-type {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--azul-turquesa);
-            font-weight: 800;
-            margin-bottom: 0.4rem;
-        }
-
-        .perfume-title {
-            font-size: 1.2rem;
-            color: var(--azul-escuro);
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .perfume-desc {
-            font-size: 0.85rem;
-            color: var(--texto-suave);
-            line-height: 1.4;
-            margin-bottom: 1.2rem;
-        }
-
-        .price-box {
-            margin-top: auto;
-            display: flex;
-            align-items: baseline;
-            gap: 8px;
-            margin-bottom: 1rem;
-        }
-
-        .price-old {
-            font-size: 0.9rem;
-            color: #94a3b8;
-            text-decoration: line-through;
-        }
-
-        .price-new {
-            font-size: 1.35rem;
-            font-weight: 800;
-            color: var(--azul-escuro);
-        }
-
-        .btn-buy {
-            background-color: var(--azul-pastel);
-            color: var(--azul-escuro);
-            border: 1px solid var(--azul-turquesa);
-            padding: 12px;
-            border-radius: 10px;
-            font-weight: 800;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            width: 100%;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .btn-buy:hover {
-            background: linear-gradient(90deg, var(--azul-turquesa), var(--azul-ciano));
-            color: var(--azul-escuro);
-        }
-
-        .story-container {
-            background-color: var(--branco);
-            padding: 3.5rem 2.5rem;
-            border-radius: var(--borda-raio);
-            border: 1px solid var(--azul-suave);
-            box-shadow: var(--sombra-card);
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .story-container h2 {
-            color: var(--azul-escuro);
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .story-container p {
-            color: var(--texto-suave);
-            line-height: 1.8;
-            margin-bottom: 1.2rem;
-            font-size: 0.98rem;
-        }
-
-        .owner-badge {
-            margin-top: 2rem;
-            padding: 1.5rem;
-            background-color: var(--azul-pastel);
-            border-left: 5px solid var(--azul-turquesa);
-            border-radius: 8px;
-        }
-
-        .owner-badge h4 {
-            color: var(--azul-escuro);
-            font-size: 1.2rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .owner-badge p {
-            margin-bottom: 0;
-            font-size: 0.9rem;
-            color: var(--azul-profundo);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .contact-box {
-            background-color: var(--branco);
-            padding: 2.5rem;
-            border-radius: var(--borda-raio);
-            border: 1px solid var(--azul-suave);
-            box-shadow: var(--sombra-card);
-        }
-
-        .contact-box h3 {
-            color: var(--azul-escuro);
-            font-size: 1.3rem;
-            margin-bottom: 1.2rem;
-            border-bottom: 2px solid var(--azul-pastel);
-            padding-bottom: 8px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 1.2rem;
-            color: var(--texto-escuro);
+        .info-box p {
+            color: var(--azul-claro);
             font-size: 0.95rem;
         }
 
-        .social-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            padding: 14px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 0.95rem;
-            margin-top: 12px;
-            color: var(--branco);
-            transition: transform 0.2s;
-        }
-
-        .social-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .btn-whatsapp { background-color: #25d366; }
-        .btn-telegram { background-color: #0088cc; }
-
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(10, 25, 47, 0.85);
-            backdrop-filter: blur(5px);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background-color: var(--branco);
-            padding: 2.5rem;
-            border-radius: var(--borda-raio);
-            max-width: 420px;
-            width: 90%;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-            border: 2px solid var(--azul-turquesa);
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 12px;
-            right: 18px;
-            font-size: 1.6rem;
-            cursor: pointer;
-            color: var(--texto-suave);
-        }
-
-        .pix-code {
-            background-color: var(--azul-pastel);
-            color: var(--azul-escuro);
-            padding: 14px;
-            border-radius: 8px;
-            font-family: monospace;
-            font-size: 0.95rem;
-            font-weight: 800;
-            word-break: break-all;
-            margin: 1.2rem 0;
-            border: 2px dashed var(--azul-turquesa);
-        }
-
-        footer {
-            background-color: var(--azul-escuro);
-            color: var(--azul-pastel);
-            padding: 3rem 1.5rem 1.5rem;
-            margin-top: auto;
-            border-top: 3px solid var(--azul-turquesa);
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-col h4 {
-            color: var(--branco);
+        .info-box strong {
+            color: var(--azul-celeste);
             font-size: 1.1rem;
-            margin-bottom: 1rem;
         }
 
-        .footer-col p, .footer-col a {
-            color: var(--azul-suave);
-            font-size: 0.85rem;
-            text-decoration: none;
-            line-height: 1.8;
-            display: block;
-        }
-
-        .footer-col a:hover { color: var(--azul-ciano); }
-
-        .footer-bottom {
+        /* RODAPÉ */
+        footer {
+            background-color: var(--azul-noite);
+            color: #64748B;
             text-align: center;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.8rem;
-            color: var(--azul-suave);
+            padding: 2.5rem;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            letter-spacing: 1px;
         }
 
+        /* RESPONSIVIDADE */
         @media (max-width: 768px) {
-            .nav-container { flex-direction: column; gap: 1rem; }
-            .hero-banner { padding: 3rem 1.5rem; }
-            .hero-banner h1 { font-size: 2.1rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .banner-desconto { flex-direction: column; text-align: center; }
+            header { flex-direction: column; gap: 1rem; }
+            nav a { margin: 0 0.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="announcement-bar">
-        <span>FRETE GRÁTIS</span> EM TODOS OS PEDIDOS VIA PIX | <span>15% OFF</span> COM ANNE LY
-    </div>
-
     <header>
-        <div class="nav-container">
-            <a onclick="navigate('home')" class="brand-logo">LAZ<span>ÚLI</span></a>
-            <nav>
-                <ul>
-                    <li><a onclick="navigate('home')" id="nav-home" class="active">Início</a></li>
-                    <li><a onclick="navigate('catalogo')" id="nav-catalogo">Coleção (7)</a></li>
-                    <li><a onclick="navigate('historia')" id="nav-historia">Anne Ly</a></li>
-                    <li><a onclick="navigate('contato')" id="nav-contato">Contato & PIX</a></li>
-                </ul>
-            </nav>
-        </div>
+        <div class="logo-marca">LAZÚLI <span>PARFUMS</span></div>
+        <nav>
+            <a href="#colecao">Coleção</a>
+            <a href="#sobre">A História</a>
+            <a href="#atendimento">Atendimento</a>
+        </nav>
     </header>
 
-    <main id="home" class="page-section active-page">
-        <div class="container">
-            <div class="hero-banner">
-                <span class="hero-tag">Alta Perfumaria</span>
-                <h1>Sinta a Nobreza do <strong>Azul</strong></h1>
-                <p>Fragrâncias exclusivas com fixação extrema de 24 horas. Criadas por Anne Ly com essências nobres.</p>
-                <button class="btn-cta" onclick="navigate('catalogo')">Ver 7 Perfumes</button>
+    <section class="hero">
+        <h1>A SUPREMACIA OLFATIVA</h1>
+        <p>Fragrâncias de alta perfumaria criadas com extratos raros para personalidades inesquecíveis.</p>
+    </section>
+
+    <div class="container">
+        <div class="banner-desconto">
+            <img src="https://raw.githubusercontent.com/anneamaralfonseca-cloud/annely/main/fb267c3b3a04acb5e2f9e8bbb8456c9a.jpg" alt="Ícone de Desconto Especial">
+            <div class="banner-desconto-texto">
+                <h3>OFERTA DE INAUGURAÇÃO EXCLUSIVA</h3>
+                <p>Ganhe 15% de desconto nas compras acima de R$ 2.000,00 via PIX ou atendimento VIP no WhatsApp.</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="colecao" class="container">
+        <h2 class="titulo-secao">COLEÇÃO ALTA PERFUMARIA</h2>
+        
+        <div class="vitrine">
+
+            <div class="card-produto destaque-diamante">
+                <span class="tag-exclusivo">MAIS EXCLUSIVO</span>
+                <img src="https://raw.githubusercontent.com/anneamaralfonseca-cloud/annely/main/copilot_image_1786288372843.jpg" class="perfume-img" alt="Lazúli Diamond Royalty">
+                <h3>Lazúli Diamond Royalty</h3>
+                <p class="notas">Extrato puro de Diamante Olfativo, Âmbar Cinzento & Íris de Florença</p>
+                <p class="preco-antigo">R$ 5.800,00</p>
+                <p class="preco">R$ 4.900,00</p>
+                <button class="btn-comprar">ADQUIRIR AGORA</button>
             </div>
 
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🚚</div>
-                    <h3>Frete Grátis</h3>
-                    <p>Entrega nacional garantida sem custo extra.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Pagamento PIX</h3>
-                    <p>Chave Pix direta com confirmação imediata.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💎</div>
-                    <h3>Coleção Exclusiva</h3>
-                    <p>7 aromas em tons azuis e frasco diamante.</p>
-                </div>
+            <div class="card-produto">
+                <span class="tag-exclusivo">EDITION NOIR</span>
+                <img src="https://raw.githubusercontent.com/anneamaralfonseca-cloud/annely/main/copilot_image_1786288368966.jpg" class="perfume-img" alt="Lazúli Midnight Mystery">
+                <h3>Lazúli Midnight Mystery</h3>
+                <p class="notas">Madeiras Nobres Fumê, Oud Negro & Pimenta da Tailândia</p>
+                <p class="preco-antigo">R$ 3.900,00</p>
+                <p class="preco">R$ 3.400,00</p>
+                <button class="btn-comprar">ADQUIRIR AGORA</button>
             </div>
 
-            <div class="section-header">
-                <h2>Destaques da Coleção</h2>
-                <p>Fragrâncias exclusivas assinadas por Anne Ly</p>
+            <div class="card-produto">
+                <img src="https://raw.githubusercontent.com/anneamaralfonseca-cloud/annely/main/copilot_image_1786288361862.jpg" class="perfume-img" alt="Lazúli Royal Sapphire">
+                <h3>Lazúli Royal Sapphire</h3>
+                <p class="notas">Safira Azul, Jasmim da Noite & Fava Tonka</p>
+                <p class="preco-antigo">R$ 3.200,00</p>
+                <p class="preco">R$ 2.850,00</p>
+                <button class="btn-comprar">ADQUIRIR AGORA</button>
             </div>
 
-            <div class="perfume-grid">
-                <div class="perfume-card">
-                    <span class="discount-badge">-20% OFF</span>
-                    <div class="perfume-img-container">
-                        <img src="perfume1.png" alt="Lazúli Ocean Blue" onerror="this.src='https://i.imgur.com/v8N1Z8w.png'">
-                    </div>
-                    <div class="card-content">
-                        <span class="perfume-type">Frescor Aquático</span>
-                        <h3 class="perfume-title">Lazúli Ocean Blue</h3>
-                        <p class="perfume-desc">Notas marinhas, sal puro e bergamota cítrica.</p>
-                        <div class="price-box">
-                            <span class="price-old">R$ 349,90</span>
-                            <span class="price-new">R$ 279,90</span>
-                        </div>
-                        <button class="btn-buy" onclick="openPix('Lazúli Ocean Blue', '279,90')">Comprar com PIX</button>
-                    </div>
-                </div>
+            <div class="card-produto">
+                <img src="https://raw.githubusercontent.com/anneamaralfonseca-cloud/annely/main/copilot_image_1786288358707.jpg" class="perfume-img" alt="Lazúli Golden Azure">
+                <h3>Lazúli Golden Azure</h3>
+                <p class="notas">Notas Auríferas, Bergamota Italiana & Sândalo Raro</p>
+                <p class="preco-antigo">R$ 2.900,00</p>
+                <p class="preco">R$ 2.500,00</p>
+                <button class="btn-comprar">ADQUIRIR AGORA</button>
+            </div>
 
-                <div class="perfume-card">
-                    <span class="discount-badge">-15% OFF</span>
-                    <div class="perfume-img-container">
-                        <img src="perfume2.png" alt="Lazúli Sapphire Night" onerror="this.src='https://i.imgur.com/uR7D21M.png'">
-                    </div>
-                    <div class="card-content">
-                        <span class="perfume-type">Amadeirado Nobre</span>
-                        <h3 class="perfume-title">Lazúli Sapphire Night</h3>
-                        <p class="perfume-desc">Cedro azul profundo, baunilha e ambar.</p>
-  
+            <div class="card-produto">
+                <img src="https://raw.githubusercontent.com/anneamaralfonseca-cloud/annely/main/copilot_image_1786288356439.jpg" class="perfume-img" alt="Lazúli Turquoise Breeze">
+                <h3>Lazúli Turquoise Breeze</h3>
+                <p class="notas">Acorde Oceânico Cristalino, Flor de Lótus & Musk Branco</p>
+                <p class="preco-antigo">R$ 2.600,00</p>
+                <p class="preco">R$ 2.200,00</p>
+                <button class="btn-comprar">ADQUIRIR AGORA</button>
+            </div>
+
+            <div class="card-produto">
+                <img src="https://raw.githubusercontent.com/anneamaralfonseca-cloud/annely/main/copilot_image_1786288351052.jpg" class="perfume-img" alt="Lazúli Velvet Navy">
+                <h3>Lazúli Velvet Navy</h3>
+                <p class="notas">Baunilha de Madagascar, Cedro do Atlas & Flores Brancas</p>
+                <p class="preco-antigo">R$ 2.400,00</p>
+                <p class="preco">R$ 1.980,00</p>
+                <button class="btn-comprar">ADQUIRIR AGORA</button>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="sobre" class="sobre">
+        <div class="sobre-conteudo">
+            <h2 class="titulo-secao">A ESSÊNCIA DA LAZÚLI</h2>
+            <p>
+                A <strong>Lazúli Haute Parfumerie</strong> nasceu da visão de criar mais do que simples fragrâncias: a busca por imortalizar memórias em notas olfativas de nobreza absoluta. Inspirada na lendária pedra Lápis-Lazúli — símbolo milenar de majestade, sabedoria e realeza —, a marca foi idealizada para atender personalidades exigentes que buscam distinção única.
+            </p>
+            <p>
+                Fundada pelo seu visionário idealizador, a casa de perfumes combina a tradição da perfumaria francesa com os ingredientes mais raros do mundo, envasados em frascos lapidados como verdadeiras joias.
+            </p>
+        </div>
+    </section>
+
+    <section id="atendimento" class="info-loja">
+        <div class="info-grid">
+            
+            <div class="info-box">
+                <h4>BOUTIQUE FÍSICA</h4>
+                <p>Alphaville, Nº 229</p>
+                <p>Alameda dos Nobres — São Paulo, SP</p>
+                <p style="margin-top: 5px; font-size: 0.8rem; color: #94A3B8;">Atendimento Presencial sob Agendamento</p>
+            </div>
+
+            <div class="info-box">
+                <img src="https://raw.githubusercontent.com/anneamaralfonseca-cloud/annely/main/9af2801b36866859bb4fb1b53935a518.jpg" class="icone-info" alt="Ícone WhatsApp Azul">
+                <h4>ATENDIMENTO VIP</h4>
+                <p>WhatsApp Concierge:</p>
+                <p><strong>+55 (11) 99999-8888</strong></p>
+            </div>
+
+            <div class="info-box">
+                <img src="https://raw.githubusercontent.com/anneamaralfonseca-cloud/annely/main/2b18cdbdce606ce10fda89ce0e808ca0.jpg" class="icone-info" alt="Ícone PIX Azul">
+                <h4>PAGAMENTO INSTANTÂNEO</h4>
+                <p>Chave PIX Oficial (CNPJ):</p>
+                <p><strong>pix@lazuliparfums.com.br</strong></p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Lazúli Haute Parfumerie S.A. Todos os direitos reservados. Alphaville — São Paulo / SP.</p>
+    </footer>
+
+</body>
+</html>
