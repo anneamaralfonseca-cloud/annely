@@ -248,5 +248,303 @@
         .filter-link {
             background: none;
             border: none;
-            font-size: 0.
-      
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--azul-medio);
+            cursor: pointer;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .filter-link.active {
+            color: var(--azul-escuro);
+            border-color: var(--azul-destaque);
+            font-weight: 700;
+        }
+
+        /* PAINEL INFORMATIVO / CONTATO */
+        .box-info {
+            background-color: var(--branco);
+            padding: 3rem;
+            border-radius: 16px;
+            border: 1px solid var(--azul-bebe);
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .pix-tag {
+            background-color: var(--azul-bebe);
+            color: var(--azul-escuro);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin: 1rem 0;
+            font-weight: 700;
+        }
+
+        .form-field {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-field label {
+            display: block;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.4rem;
+            color: var(--azul-escuro);
+        }
+
+        .form-field input, .form-field textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--azul-bebe);
+            border-radius: 6px;
+            background-color: var(--cinza-suave);
+            outline: none;
+        }
+
+        /* MODAL PIX */
+        .modal-bg {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(7, 19, 39, 0.6);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-card {
+            background: var(--branco);
+            padding: 2.5rem;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 380px;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px; right: 15px;
+            cursor: pointer;
+            font-size: 1.4rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--azul-escuro);
+            color: var(--azul-bebe);
+            text-align: center;
+            padding: 2rem;
+            margin-top: auto;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 1rem; padding: 1.5rem; }
+            .hero-clean { flex-direction: column; padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-notice">
+        🚚 FRETE GRÁTIS PARA TODO O BRASIL | PAGAMENTO VIA PIX COM CONFIRMAÇÃO IMEDIATA
+    </div>
+
+    <header>
+        <a onclick="navigate('home')" class="brand">LAZ<span>ÚLI</span></a>
+        <nav>
+            <ul>
+                <li><a onclick="navigate('home')" id="nav-home" class="active">Início</a></li>
+                <li><a onclick="navigate('catalogo')" id="nav-catalogo">Coleções</a></li>
+                <li><a onclick="navigate('sobre')" id="nav-sobre">Sobre</a></li>
+                <li><a onclick="navigate('contato')" id="nav-contato">Atendimento</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="page active-page">
+        <div class="hero-clean">
+            <div class="hero-text">
+                <h1>A Essência da Elegância.</h1>
+                <p>Fragrâncias artesanais inspiradas na profundidade e no frescor dos tons azuis.</p>
+                <button class="btn-minimal" onclick="navigate('catalogo')">Ver Coleção</button>
+            </div>
+            <div class="hero-img">
+                <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=800&auto=format&fit=crop" alt="Perfume Lazúli">
+            </div>
+        </div>
+
+        <div class="section-head">
+            <h2>Destaques</h2>
+        </div>
+
+        <div class="grid-cards">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=500&auto=format&fit=crop" alt="Lazúli Ocean">
+                <h3>Lazúli Ocean</h3>
+                <span>Aquático Fresco</span>
+                <div class="price">R$ 289,90</div>
+                <button class="btn-minimal" style="width:100%" onclick="openPix('Lazúli Ocean', '289,90')">Comprar via PIX</button>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=500&auto=format&fit=crop" alt="Lazúli Night">
+                <h3>Lazúli Night</h3>
+                <span>Amadeirado Nobre</span>
+                <div class="price">R$ 349,90</div>
+                <button class="btn-minimal" style="width:100%" onclick="openPix('Lazúli Night', '349,90')">Comprar via PIX</button>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=500&auto=format&fit=crop" alt="Aqua Lazúli">
+                <h3>Aqua Lazúli</h3>
+                <span>Cítrico Suave</span>
+                <div class="price">R$ 199,90</div>
+                <button class="btn-minimal" style="width:100%" onclick="openPix('Aqua Lazúli', '199,90')">Comprar via PIX</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="catalogo" class="page">
+        <div class="section-head">
+            <h2>Coleções Lazúli</h2>
+        </div>
+
+        <div class="filters">
+            <button class="filter-link active" onclick="filter('todos')">Todos</button>
+            <button class="filter-link" onclick="filter('fresco')">Frescos</button>
+            <button class="filter-link" onclick="filter('amadeirado')">Amadeirados</button>
+        </div>
+
+        <div class="grid-cards">
+            <div class="card fresco">
+                <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=500&auto=format&fit=crop" alt="Lazúli Ocean">
+                <h3>Lazúli Ocean</h3>
+                <span>Frescor Marinho</span>
+                <div class="price">R$ 289,90</div>
+                <button class="btn-minimal" style="width:100%" onclick="openPix('Lazúli Ocean', '289,90')">Comprar via PIX</button>
+            </div>
+
+            <div class="card amadeirado">
+                <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=500&auto=format&fit=crop" alt="Lazúli Night">
+                <h3>Lazúli Night</h3>
+                <span>Amadeirado</span>
+                <div class="price">R$ 349,90</div>
+                <button class="btn-minimal" style="width:100%" onclick="openPix('Lazúli Night', '349,90')">Comprar via PIX</button>
+            </div>
+
+            <div class="card fresco">
+                <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=500&auto=format&fit=crop" alt="Aqua Lazúli">
+                <h3>Aqua Lazúli</h3>
+                <span>Cítrico</span>
+                <div class="price">R$ 199,90</div>
+                <button class="btn-minimal" style="width:100%" onclick="openPix('Aqua Lazúli', '199,90')">Comprar via PIX</button>
+            </div>
+
+            <div class="card amadeirado">
+                <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?q=80&w=500&auto=format&fit=crop" alt="Royal Lazúli">
+                <div class="card-body">
+                    <h3>Royal Lazúli</h3>
+                    <span>Cedro Exclusivo</span>
+                    <div class="price">R$ 420,00</div>
+                    <button class="btn-minimal" style="width:100%" onclick="openPix('Royal Lazúli', '420,00')">Comprar via PIX</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="page">
+        <div class="box-info">
+            <h2 style="margin-bottom: 1rem; font-weight: 300;">SOBRE A LAZÚLI</h2>
+            <p style="color: var(--azul-medio); line-height: 1.6; margin-bottom: 1.5rem;">
+                A Lazúli cria alta perfumaria unindo simplicidade visual à complexidade de notas aromáticas. Entregamos para todo o país com frete gratuito e atendimento dedicado.
+            </p>
+            <p style="font-size: 0.9rem;">Chave Oficial Pix:</p>
+            <div class="pix-tag">pix@lazuli.com.br</div>
+        </div>
+    </section>
+
+    <section id="contato" class="page">
+        <div class="box-info">
+            <h2 style="margin-bottom: 1.5rem; font-weight: 300; text-align: center;">ATENDIMENTO</h2>
+            <p style="text-align: center; margin-bottom: 1.5rem; color: var(--azul-medio);">WhatsApp: (11) 99999-8888</p>
+            <form onsubmit="handleForm(event)">
+                <div class="form-field">
+                    <label>Nome</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-field">
+                    <label>E-mail</label>
+                    <input type="email" required>
+                </div>
+                <div class="form-field">
+                    <label>Mensagem</label>
+                    <textarea rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn-minimal" style="width: 100%;">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+
+    <div id="modalPix" class="modal-bg">
+        <div class="modal-card">
+            <span class="modal-close" onclick="closePix()">&times;</span>
+            <h3 id="pName" style="color: var(--azul-escuro);">Perfume</h3>
+            <p style="margin: 10px 0; color: var(--azul-destaque); font-size: 1.3rem; font-weight: 700;" id="pPrice">R$ 0,00</p>
+            <p style="font-size: 0.8rem; color: var(--azul-medio);">Copie a chave Pix para pagar:</p>
+            <div class="pix-tag" id="pKey">pix@lazuli.com.br</div>
+            <button class="btn-minimal" style="width:100%; margin-top: 10px;" onclick="copyPixKey()">Copiar Chave PIX</button>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 LAZÚLI PERFUMES. TODOS OS DIREITOS RESERVADOS.
+    </footer>
+
+    <script>
+        function navigate(id) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
+            document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+            document.getElementById(id).classList.add('active-page');
+            document.getElementById('nav-' + id).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function filter(cat) {
+            document.querySelectorAll('.filter-link').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            document.querySelectorAll('#catalogo .card').forEach(c => {
+                c.style.display = (cat === 'todos' || c.classList.contains(cat)) ? 'block' : 'none';
+            });
+        }
+
+        function openPix(nome, preco) {
+            document.getElementById('pName').innerText = nome;
+            document.getElementById('pPrice').innerText = 'R$ ' + preco;
+            document.getElementById('modalPix').style.display = 'flex';
+        }
+
+        function closePix() {
+            document.getElementById('modalPix').style.display = 'none';
+        }
+
+        function copyPixKey() {
+            navigator.clipboard.writeText('pix@lazuli.com.br');
+            alert('Chave PIX copiada!');
+        }
+
+        function handleForm(e) {
+            e.preventDefault();
+            alert('Mensagem enviada!');
+        }
+    </script>
+</body>
+</html>
