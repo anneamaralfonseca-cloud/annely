@@ -15,14 +15,13 @@
             --azul-celeste: #38BDF8;
             --azul-claro: #E0F2FE;
             --branco: #FFFFFF;
-            --cinza-suave: #F8FAFC;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Cinzel', 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
         }
 
         body {
@@ -31,7 +30,7 @@
             line-height: 1.6;
         }
 
-        /* CABEÇALHO VIP */
+        /* CABEÇALHO */
         header {
             background: rgba(10, 25, 47, 0.95);
             backdrop-filter: blur(10px);
@@ -41,14 +40,14 @@
             align-items: center;
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
             border-bottom: 1px solid rgba(56, 189, 248, 0.2);
         }
 
         .logo-marca {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 300;
-            letter-spacing: 6px;
+            letter-spacing: 5px;
             color: var(--branco);
             text-transform: uppercase;
         }
@@ -77,91 +76,75 @@
             background: linear-gradient(180deg, rgba(5,12,26,0.6) 0%, rgba(10,25,47,0.9) 100%),
                         radial-gradient(circle, var(--azul-royal) 0%, var(--azul-noite) 100%);
             text-align: center;
-            padding: 6rem 2rem 4rem;
+            padding: 5rem 2rem 3rem;
             border-bottom: 1px solid rgba(56, 189, 248, 0.15);
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 300;
-            letter-spacing: 5px;
+            letter-spacing: 4px;
             margin-bottom: 1rem;
-            color: var(--branco);
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--azul-celeste);
-            max-width: 650px;
+            max-width: 600px;
             margin: 0 auto;
             font-weight: 300;
-            letter-spacing: 1px;
         }
 
-        /* SEÇÃO DE PROMOÇÃO / DESCONTO */
+        /* PROMOÇÃO */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
         .banner-desconto {
             background: linear-gradient(90deg, var(--azul-marinho), var(--azul-royal), var(--azul-marinho));
-            margin: 3rem auto;
-            max-width: 1100px;
             border-radius: 12px;
-            padding: 1.5rem 2rem;
+            padding: 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 1.5rem;
             border: 1px solid var(--azul-celeste);
-            box-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
         }
 
         .banner-desconto img {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             object-fit: contain;
         }
 
         .banner-desconto-texto h3 {
             color: var(--branco);
-            font-size: 1.3rem;
-            letter-spacing: 1px;
+            font-size: 1.2rem;
         }
 
         .banner-desconto-texto p {
             color: var(--azul-celeste);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
-        /* VITRINE DE PRODUTOS */
-        .container {
-            max-width: 1200px;
-            margin: 3rem auto 5rem;
-            padding: 0 2rem;
-        }
-
+        /* VITRINE */
         .titulo-secao {
             text-align: center;
-            font-size: 2.2rem;
+            font-size: 2rem;
             color: var(--branco);
-            margin-bottom: 3.5rem;
-            letter-spacing: 4px;
-            position: relative;
-        }
-
-        .titulo-secao::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--azul-celeste), transparent);
-            margin: 12px auto 0;
+            margin-bottom: 3rem;
+            letter-spacing: 3px;
         }
 
         .vitrine {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2.5rem;
         }
 
-        /* CARDS */
         .card-produto {
             background-color: var(--azul-marinho);
             border-radius: 12px;
@@ -180,11 +163,9 @@
             box-shadow: 0 15px 40px rgba(56, 189, 248, 0.25);
         }
 
-        /* Card Diamante - Destaque Especial */
         .card-produto.destaque-diamante {
             border: 2px solid #E0F2FE;
-            background: linear-gradient(180deg, var(--azul-marinho) 0%, #152A4A 100%);
-            box-shadow: 0 0 35px rgba(224, 242, 254, 0.3);
+            box-shadow: 0 0 30px rgba(224, 242, 254, 0.25);
         }
 
         .tag-exclusivo {
@@ -193,59 +174,53 @@
             right: 15px;
             background: linear-gradient(45deg, #1E3A8A, var(--azul-celeste));
             color: var(--branco);
-            padding: 5px 15px;
-            font-size: 0.75rem;
+            padding: 4px 12px;
+            font-size: 0.7rem;
             font-weight: bold;
             border-radius: 20px;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
         .card-produto img.perfume-img {
             width: 100%;
-            height: 380px;
+            height: 350px;
             object-fit: cover;
-            border-bottom: 1px solid rgba(56, 189, 248, 0.1);
         }
 
         .card-produto h3 {
-            font-size: 1.4rem;
-            margin: 1.5rem 0 0.5rem;
-            color: var(--branco);
-            letter-spacing: 1px;
+            font-size: 1.3rem;
+            margin: 1.2rem 0 0.4rem;
         }
 
         .card-produto .notas {
             font-size: 0.85rem;
             color: var(--azul-celeste);
-            margin-bottom: 1.2rem;
-            padding: 0 1.5rem;
+            margin-bottom: 1rem;
+            padding: 0 1rem;
             font-style: italic;
         }
 
         .card-produto .preco-antigo {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #94A3B8;
             text-decoration: line-through;
-            margin-bottom: 0.2rem;
         }
 
         .card-produto .preco {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--branco);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
 
         .btn-comprar {
             background: linear-gradient(135deg, var(--azul-royal), var(--azul-cobalto));
             color: var(--branco);
             border: 1px solid var(--azul-celeste);
-            padding: 0.9rem 2.2rem;
+            padding: 0.8rem 2rem;
             border-radius: 6px;
             cursor: pointer;
             font-weight: 600;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             text-transform: uppercase;
             font-size: 0.8rem;
             transition: all 0.3s;
@@ -254,48 +229,45 @@
         .btn-comprar:hover {
             background: var(--azul-celeste);
             color: var(--azul-noite);
-            box-shadow: 0 0 20px var(--azul-celeste);
         }
 
-        /* SOBRE A MARCA */
+        /* SOBRE */
         .sobre {
             background: linear-gradient(180deg, var(--azul-profundo), var(--azul-noite));
-            padding: 6rem 2rem;
+            padding: 5rem 2rem;
             border-top: 1px solid rgba(56, 189, 248, 0.1);
         }
 
         .sobre-conteudo {
-            max-width: 850px;
+            max-width: 800px;
             margin: 0 auto;
             text-align: center;
         }
 
         .sobre p {
-            margin-bottom: 1.8rem;
+            margin-bottom: 1.5rem;
             color: var(--azul-claro);
-            font-size: 1.1rem;
-            line-height: 1.8;
-            font-weight: 300;
+            font-size: 1.05rem;
         }
 
-        /* INFORMAÇÕES DE CONTATO E PAGAMENTO */
+        /* INFO LOJA */
         .info-loja {
             background-color: var(--azul-profundo);
-            padding: 5rem 2rem;
+            padding: 4rem 2rem;
             border-top: 1px solid rgba(56, 189, 248, 0.15);
         }
 
         .info-grid {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
             text-align: center;
         }
 
         .info-box {
-            padding: 2.5rem 1.5rem;
+            padding: 2rem 1rem;
             background: rgba(17, 34, 64, 0.6);
             border-radius: 12px;
             border: 1px solid rgba(56, 189, 248, 0.2);
@@ -305,46 +277,165 @@
         }
 
         .info-box img.icone-info {
-            width: 42px;
-            height: 42px;
+            width: 40px;
+            height: 40px;
             object-fit: contain;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
         }
 
         .info-box h4 {
             color: var(--branco);
-            margin-bottom: 0.8rem;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
         }
 
         .info-box p {
             color: var(--azul-claro);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .info-box strong {
             color: var(--azul-celeste);
+        }
+
+        /* --- ESTILO DO MODAL (JANELA FLUTUANTE DE COMPRA) --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 12, 26, 0.85);
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.ativo {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-card {
+            background: var(--azul-marinho);
+            border: 1px solid var(--azul-celeste);
+            border-radius: 16px;
+            width: 90%;
+            max-width: 480px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.ativo .modal-card {
+            transform: translateY(0);
+        }
+
+        .modal-fechar {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--azul-celeste);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        .modal-card h3 {
+            font-size: 1.5rem;
+            color: var(--branco);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-card .subtitulo {
+            color: var(--azul-celeste);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-produto-detalhes {
+            background: var(--azul-profundo);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(56, 189, 248, 0.15);
+        }
+
+        .modal-produto-detalhes h4 {
+            color: var(--branco);
             font-size: 1.1rem;
         }
 
-        /* RODAPÉ */
+        .modal-produto-detalhes .preco-modal {
+            color: var(--azul-celeste);
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .pix-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .pix-box p {
+            font-size: 0.85rem;
+            color: var(--azul-claro);
+        }
+
+        .pix-box strong {
+            display: block;
+            margin-top: 5px;
+            color: var(--branco);
+            background: var(--azul-noite);
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px dashed var(--azul-celeste);
+            font-size: 0.9rem;
+            word-break: break-all;
+        }
+
+        .btn-whatsapp-finalizar {
+            display: inline-block;
+            width: 100%;
+            background: #25D366;
+            color: #FFF;
+            text-decoration: none;
+            padding: 0.9rem;
+            border-radius: 6px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: background 0.3s;
+        }
+
+        .btn-whatsapp-finalizar:hover {
+            background: #1EBE57;
+        }
+
         footer {
             background-color: var(--azul-noite);
             color: #64748B;
             text-align: center;
-            padding: 2.5rem;
+            padding: 2rem;
             font-size: 0.85rem;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
-            letter-spacing: 1px;
         }
 
-        /* RESPONSIVIDADE */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
+            .hero h1 { font-size: 2.2rem; }
             .banner-desconto { flex-direction: column; text-align: center; }
             header { flex-direction: column; gap: 1rem; }
-            nav a { margin: 0 0.8rem; }
+            nav a { margin: 0 0.5rem; }
         }
     </style>
 </head>
@@ -366,10 +457,10 @@
 
     <div class="container">
         <div class="banner-desconto">
-            <img src="https://raw.githubusercontent.com/anneamaralfonseca-cloud/annely/main/fb267c3b3a04acb5e2f9e8bbb8456c9a.jpg" alt="Ícone de Desconto Especial">
+            <img src="https://raw.githubusercontent.com/anneamaralfonseca-cloud/annely/main/fb267c3b3a04acb5e2f9e8bbb8456c9a.jpg" alt="Desconto">
             <div class="banner-desconto-texto">
                 <h3>OFERTA DE INAUGURAÇÃO EXCLUSIVA</h3>
-                <p>Ganhe 15% de desconto nas compras acima de R$ 2.000,00 via PIX ou atendimento VIP no WhatsApp.</p>
+                <p>Ganhe 15% de desconto nas compras via PIX ou atendimento VIP no WhatsApp.</p>
             </div>
         </div>
     </div>
@@ -386,7 +477,7 @@
                 <p class="notas">Extrato puro de Diamante Olfativo, Âmbar Cinzento & Íris de Florença</p>
                 <p class="preco-antigo">R$ 5.800,00</p>
                 <p class="preco">R$ 4.900,00</p>
-                <button class="btn-comprar">ADQUIRIR AGORA</button>
+                <button class="btn-comprar" onclick="abrirModal('Lazúli Diamond Royalty', 'R$ 4.900,00')">ADQUIRIR AGORA</button>
             </div>
 
             <div class="card-produto">
@@ -396,7 +487,7 @@
                 <p class="notas">Madeiras Nobres Fumê, Oud Negro & Pimenta da Tailândia</p>
                 <p class="preco-antigo">R$ 3.900,00</p>
                 <p class="preco">R$ 3.400,00</p>
-                <button class="btn-comprar">ADQUIRIR AGORA</button>
+                <button class="btn-comprar" onclick="abrirModal('Lazúli Midnight Mystery', 'R$ 3.400,00')">ADQUIRIR AGORA</button>
             </div>
 
             <div class="card-produto">
@@ -405,7 +496,7 @@
                 <p class="notas">Safira Azul, Jasmim da Noite & Fava Tonka</p>
                 <p class="preco-antigo">R$ 3.200,00</p>
                 <p class="preco">R$ 2.850,00</p>
-                <button class="btn-comprar">ADQUIRIR AGORA</button>
+                <button class="btn-comprar" onclick="abrirModal('Lazúli Royal Sapphire', 'R$ 2.850,00')">ADQUIRIR AGORA</button>
             </div>
 
             <div class="card-produto">
@@ -414,7 +505,7 @@
                 <p class="notas">Notas Auríferas, Bergamota Italiana & Sândalo Raro</p>
                 <p class="preco-antigo">R$ 2.900,00</p>
                 <p class="preco">R$ 2.500,00</p>
-                <button class="btn-comprar">ADQUIRIR AGORA</button>
+                <button class="btn-comprar" onclick="abrirModal('Lazúli Golden Azure', 'R$ 2.500,00')">ADQUIRIR AGORA</button>
             </div>
 
             <div class="card-produto">
@@ -423,7 +514,7 @@
                 <p class="notas">Acorde Oceânico Cristalino, Flor de Lótus & Musk Branco</p>
                 <p class="preco-antigo">R$ 2.600,00</p>
                 <p class="preco">R$ 2.200,00</p>
-                <button class="btn-comprar">ADQUIRIR AGORA</button>
+                <button class="btn-comprar" onclick="abrirModal('Lazúli Turquoise Breeze', 'R$ 2.200,00')">ADQUIRIR AGORA</button>
             </div>
 
             <div class="card-produto">
@@ -432,7 +523,7 @@
                 <p class="notas">Baunilha de Madagascar, Cedro do Atlas & Flores Brancas</p>
                 <p class="preco-antigo">R$ 2.400,00</p>
                 <p class="preco">R$ 1.980,00</p>
-                <button class="btn-comprar">ADQUIRIR AGORA</button>
+                <button class="btn-comprar" onclick="abrirModal('Lazúli Velvet Navy', 'R$ 1.980,00')">ADQUIRIR AGORA</button>
             </div>
 
         </div>
@@ -442,44 +533,68 @@
         <div class="sobre-conteudo">
             <h2 class="titulo-secao">A ESSÊNCIA DA LAZÚLI</h2>
             <p>
-                A <strong>Lazúli Haute Parfumerie</strong> nasceu da visão de criar mais do que simples fragrâncias: a busca por imortalizar memórias em notas olfativas de nobreza absoluta. Inspirada na lendária pedra Lápis-Lazúli — símbolo milenar de majestade, sabedoria e realeza —, a marca foi idealizada para atender personalidades exigentes que buscam distinção única.
-            </p>
-            <p>
-                Fundada pelo seu visionário idealizador, a casa de perfumes combina a tradição da perfumaria francesa com os ingredientes mais raros do mundo, envasados em frascos lapidados como verdadeiras joias.
+                A <strong>Lazúli Haute Parfumerie</strong> nasceu da visão de criar mais do que simples fragrâncias: a busca por imortalizar memórias em notas olfativas de nobreza absoluta. Inspirada na lendária pedra Lápis-Lazúli — símbolo milenar de majestade e sabedoria —, a marca foi idealizada para atender personalidades exigentes que buscam distinção única.
             </p>
         </div>
     </section>
 
     <section id="atendimento" class="info-loja">
         <div class="info-grid">
-            
             <div class="info-box">
                 <h4>BOUTIQUE FÍSICA</h4>
                 <p>Alphaville, Nº 229</p>
-                <p>Alameda dos Nobres — São Paulo, SP</p>
-                <p style="margin-top: 5px; font-size: 0.8rem; color: #94A3B8;">Atendimento Presencial sob Agendamento</p>
+                <p>São Paulo — SP</p>
             </div>
 
             <div class="info-box">
-                <img src="https://raw.githubusercontent.com/anneamaralfonseca-cloud/annely/main/9af2801b36866859bb4fb1b53935a518.jpg" class="icone-info" alt="Ícone WhatsApp Azul">
+                <img src="https://raw.githubusercontent.com/anneamaralfonseca-cloud/annely/main/9af2801b36866859bb4fb1b53935a518.jpg" class="icone-info" alt="WhatsApp">
                 <h4>ATENDIMENTO VIP</h4>
                 <p>WhatsApp Concierge:</p>
                 <p><strong>+55 (11) 99999-8888</strong></p>
             </div>
 
             <div class="info-box">
-                <img src="https://raw.githubusercontent.com/anneamaralfonseca-cloud/annely/main/2b18cdbdce606ce10fda89ce0e808ca0.jpg" class="icone-info" alt="Ícone PIX Azul">
+                <img src="https://raw.githubusercontent.com/anneamaralfonseca-cloud/annely/main/2b18cdbdce606ce10fda89ce0e808ca0.jpg" class="icone-info" alt="Pix">
                 <h4>PAGAMENTO INSTANTÂNEO</h4>
-                <p>Chave PIX Oficial (CNPJ):</p>
+                <p>Chave PIX Oficial:</p>
                 <p><strong>pix@lazuliparfums.com.br</strong></p>
             </div>
-
         </div>
     </section>
 
+    <div class="modal-overlay" id="modalCompra">
+        <div class="modal-card">
+            <button class="modal-fechar" onclick="fecharModal()">&times;</button>
+            <h3>RESERVA EXCLUSIVA</h3>
+            <p class="subtitulo">Você selecionou uma peça de alta perfumaria</p>
+
+            <div class="modal-produto-detalhes">
+                <h4 id="nomeProdutoModal">Nome do Perfume</h4>
+                <div class="preco-modal" id="precoProdutoModal">R$ 0,00</div>
+            </div>
+
+            <div class="pix-box">
+                <p>Chave PIX Oficial para Reserva Instantânea:</p>
+                <strong>pix@lazuliparfums.com.br</strong>
+            </div>
+
+            <a href="#" id="btnWhatsModal" target="_blank" class="btn-whatsapp-finalizar">
+                FINALIZAR PEDIDO VIA WHATSAPP
+            </a>
+        </div>
+    </div>
+
     <footer>
-        <p>&copy; 2026 Lazúli Haute Parfumerie S.A. Todos os direitos reservados. Alphaville — São Paulo / SP.</p>
+        <p>&copy; 2026 Lazúli Haute Parfumerie. Alphaville, São Paulo - SP.</p>
     </footer>
 
-</body>
-</html>
+    <script>
+        function abrirModal(nome, preco) {
+            document.getElementById('nomeProdutoModal').innerText = nome;
+            document.getElementById('precoProdutoModal').innerText = preco;
+            
+            // Monta mensagem personalizada para o WhatsApp
+            const mensagem = encodeURIComponent(`Olá! Gostaria de finalizar a compra do perfume ${nome} no valor de ${preco}.`);
+            document.getElementById('btnWhatsModal').href = `https://wa.me/5511999998888?text=${mensagem}`;
+            
+            // Exibe 
