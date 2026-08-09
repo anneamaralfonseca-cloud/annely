@@ -13,7 +13,6 @@
             --branco: #ffffff;
             --cinza-suave: #f8fafc;
             --texto-escuro: #0f172a;
-            --pix: #22c55e;
         }
 
         * {
@@ -31,7 +30,6 @@
             flex-direction: column;
         }
 
-        /* BANNER DE AVISO MINIMALISTA */
         .top-notice {
             background-color: var(--azul-escuro);
             color: var(--azul-bebe);
@@ -42,7 +40,6 @@
             text-transform: uppercase;
         }
 
-        /* NAVEGAÇÃO / HEADER */
         header {
             background-color: var(--branco);
             padding: 1.5rem 3rem;
@@ -62,6 +59,7 @@
             color: var(--azul-escuro);
             text-decoration: none;
             text-transform: uppercase;
+            cursor: pointer;
         }
 
         .brand span {
@@ -90,7 +88,6 @@
             color: var(--azul-destaque);
         }
 
-        /* SISTEMA SPA DE PÁGINAS */
         .page {
             display: none;
             max-width: 1100px;
@@ -109,7 +106,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* HERO CLEAN E ELEGANTE */
         .hero-clean {
             display: flex;
             align-items: center;
@@ -172,7 +168,6 @@
             background-color: var(--azul-destaque);
         }
 
-        /* SEÇÃO E CARDS DE PERFUMES */
         .section-head {
             text-align: center;
             margin-bottom: 2.5rem;
@@ -237,7 +232,6 @@
             margin-bottom: 1rem;
         }
 
-        /* CATÁLOGO FILTROS */
         .filters {
             display: flex;
             justify-content: center;
@@ -263,7 +257,6 @@
             font-weight: 700;
         }
 
-        /* PAINEL INFORMATIVO / CONTATO */
         .box-info {
             background-color: var(--branco);
             padding: 3rem;
@@ -307,7 +300,6 @@
             outline: none;
         }
 
-        /* MODAL PIX */
         .modal-bg {
             display: none;
             position: fixed;
@@ -335,7 +327,6 @@
             font-size: 1.4rem;
         }
 
-        /* FOOTER */
         footer {
             background-color: var(--azul-escuro);
             color: var(--azul-bebe);
@@ -419,9 +410,9 @@
         </div>
 
         <div class="filters">
-            <button class="filter-link active" onclick="filter('todos')">Todos</button>
-            <button class="filter-link" onclick="filter('fresco')">Frescos</button>
-            <button class="filter-link" onclick="filter('amadeirado')">Amadeirados</button>
+            <button class="filter-link active" onclick="filter('todos', event)">Todos</button>
+            <button class="filter-link" onclick="filter('fresco', event)">Frescos</button>
+            <button class="filter-link" onclick="filter('amadeirado', event)">Amadeirados</button>
         </div>
 
         <div class="grid-cards">
@@ -451,12 +442,10 @@
 
             <div class="card amadeirado">
                 <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?q=80&w=500&auto=format&fit=crop" alt="Royal Lazúli">
-                <div class="card-body">
-                    <h3>Royal Lazúli</h3>
-                    <span>Cedro Exclusivo</span>
-                    <div class="price">R$ 420,00</div>
-                    <button class="btn-minimal" style="width:100%" onclick="openPix('Royal Lazúli', '420,00')">Comprar via PIX</button>
-                </div>
+                <h3>Royal Lazúli</h3>
+                <span>Cedro Exclusivo</span>
+                <div class="price">R$ 420,00</div>
+                <button class="btn-minimal" style="width:100%" onclick="openPix('Royal Lazúli', '420,00')">Comprar via PIX</button>
             </div>
         </div>
     </section>
@@ -518,9 +507,9 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function filter(cat) {
+        function filter(cat, e) {
             document.querySelectorAll('.filter-link').forEach(b => b.classList.remove('active'));
-            event.target.classList.add('active');
+            e.target.classList.add('active');
             document.querySelectorAll('#catalogo .card').forEach(c => {
                 c.style.display = (cat === 'todos' || c.classList.contains(cat)) ? 'block' : 'none';
             });
@@ -543,7 +532,7 @@
 
         function handleForm(e) {
             e.preventDefault();
-            alert('Mensagem enviada!');
+            alert('Mensagem enviada com sucesso!');
         }
     </script>
 </body>
